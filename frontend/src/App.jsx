@@ -8,12 +8,19 @@ import AddToCart from "./Cart/AddToCart";
 import WishList from "./wishlist/WishList";
 import Search from "./search/Search";
 import FiexdFooter from "./Footer/FiexdFooter";
+
 //amar---------
 import Product from "./Pages/Product";
 import Productcart from "./Pages/Productcart";
 import Addresspayment from "./Pages/Addresspayment";
+import { useState } from "react";
+import UserAccount from "./Account/UserAccount";
+
 
 function App() {
+
+  const [user , setUser] = useState(null)
+
   return (
     <>
       <Router>
@@ -79,7 +86,17 @@ function App() {
               </>
             }
           ></Route>
-          {/* amar---- */}
+
+          {/* Account */}
+          <Route path="/Account" element={
+            <>
+            <UserAccount/>
+            </>
+          }>
+          </Route>
+
+          {/* amar-- Product */}
+        
           <Route path="/products" element={<>
             <Header/>
             <Product />
@@ -88,6 +105,7 @@ function App() {
           } 
           />
 
+          {/* Product - cart */}
           <Route path="/products/cart" element={<>
             <Header/>
             <Productcart />
@@ -95,7 +113,9 @@ function App() {
             </>
           } 
           />
+
           <Route path="/products/cart/address" element={<Addresspayment />} />
+
         </Routes>
       </Router>
     </>
