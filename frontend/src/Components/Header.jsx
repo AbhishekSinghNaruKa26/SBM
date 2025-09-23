@@ -150,10 +150,14 @@ const Header = () => {
 
               {/* Button List */}
               <div className="font-bold tracking-wider mt-8">
-                {lists.map((item, index) => (
-                  <div key={index} className="py-4 text-xl">
-                    {item}
+                {lists.map((item) => (
+                    <Link to={item.path}>
+       
+                
+                  <div onClick={()=>setOpen(!open)} key={item.id} className="py-4 text-xl">
+                    {item.name}
                   </div>
+                  </Link>
                 ))}
               </div>
 

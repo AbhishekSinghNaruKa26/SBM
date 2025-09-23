@@ -2,7 +2,7 @@ import React from "react";
 
 function Description({ desc }) {
   return (
-    <div className="mb-10 space-y-5 md:space-y-7 max-w-[1400px] w-full mx-auto p-5 md:p-10">
+    <div className="mb-50 space-y-5 md:space-y-7 max-w-[1400px] w-full mx-auto p-5 md:p-10">
       <div className="border border-gray-400 md:border-gray-200 w-full"></div>
       <div className="text-[22px] md:text-[22px] tracking-wider font-bold max-w-[300px] w-full">
         Why choose SBM?

@@ -80,8 +80,21 @@ function App() {
             }
           ></Route>
           {/* amar---- */}
-          <Route path="/products" element={<Product />} />
-          <Route path="/products/cart" element={<Productcart />} />
+          <Route path="/products" element={<>
+            <Header/>
+            <Product />
+            <Footer/>
+            </>
+          } 
+          />
+
+          <Route path="/products/cart" element={<>
+            <Header/>
+            <Productcart />
+            <Footer/>
+            </>
+          } 
+          />
           <Route path="/products/cart/address" element={<Addresspayment />} />
         </Routes>
       </Router>

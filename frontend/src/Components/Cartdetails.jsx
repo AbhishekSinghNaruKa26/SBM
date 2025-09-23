@@ -16,7 +16,7 @@ function Cartdetails({ cart }) {
   return (
     <div className="w-full min-h-screen flex flex-col md:flex-row  mx-auto mb-10 md:mb-35 mt-40">
       {/* image protion */}
-      <div className="md:ml-10 w-full md:w-[40%] h-[350px]  md:h-full object-cover overflow-hidden md:sticky top-0 border border-gray-200 flex items-center">
+      <div className="md:ml-10 w-full md:w-[40%]   md:h-full object-cover overflow-hidden md:sticky top-0 border border-gray-200 flex items-center">
         <img
           src={carts}
           className="w-full h-auto object-cover min-h-[200px] "
@@ -26,9 +26,11 @@ function Cartdetails({ cart }) {
       <div className=" w-full md:w-[58%] md:overflow-y-scroll transition-transform duration-1000 flex flex-col  space-y-2 md:space-y-5 mt-5 md:mt-0 px-6 md:px-15">
         {/* rating */}
         {/* name masala */}
+
         <div className="text-black font-bold text-base md:text-[40px]">
           SBM Kashmiri-Chili
         </div>
+
         {/* discount and orignal price */}
         <div className="space-x-2">
           <span className="line-through  text-gray-400 text-base md:text-[25px] tracking-wider">
@@ -114,7 +116,7 @@ function Cartdetails({ cart }) {
             </button>
           </div>
           <Link to={"/products/cart/address"}>
-            <div className="w-full md:w-[350px] h-[50px] md:h-[60px] text-base md:text-[22px] text-white font-semibold bg-black flex items-center justify-center rounded-md tracking-wider hover:bg-red-700 transition duration-500">
+            <div className="w-full  px-9 whitespace-nowrap h-[50px] md:h-[60px] text-base md:text-[20px] text-white font-semibold bg-black flex items-center justify-center rounded-md tracking-wider hover:bg-red-700 transition duration-500">
               BUY IT NOW
             </div>
           </Link>

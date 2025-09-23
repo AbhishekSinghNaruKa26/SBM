@@ -11,21 +11,28 @@ function Products({ prodc }) {
           (items) => items.category.toLowerCase() === slectedCategory
         );
   return (
-    <div className="mt-5 mx-auto w-full max-w-[1400px] shadow-2xl my-5 rounded-md">
+    <div className="my-8 sm:my-15 mx-auto w-full max-w-[1400px] shadow-2xl p-4  rounded-md">
+
       <h1 className="text-[25px] font-bold ml-5 md:ml-10 mb-5 tracking-widest py-3">
         Products
       </h1>
-      <div className="gap-2 mx-auto overflow-x-auto grid grid-cols-2 md:grid-cols-3 space-y-10 max-w-[1400px] ">
+
+      {/* info of product */}
+      <div className="gap-4 mx-auto overflow-x-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 space-y-10 max-w-[1400px] ">
         {filterItems.map((item, i) => (
-          <div className="w-[140px] min-w-[180px] sm:w-[200px] md:w-[230px] lg:w-[250px] h-[300px] md:h-[340px] flex flex-col  justify-center items-center  group relative  rounded-md mx-auto whitespace-nowrap border-[2px] border-gray-400 hover:border-[2px] hover:border-black p-2">
-            <div className="w-full h-[50%] object-cover overflow-hidden  relative mx-auto">
-              <img src={item.img} key={i} />
+          // Product and image details
+          <div className=" max-w-[300px] max-h-[400px]    min-w-[120px] w-full mx-auto flex flex-col  justify-center items-center  group relative  rounded-md  whitespace-nowrap border-[2px] border-gray-400 hover:border-[2px] hover:border-black p-2">
+            
+            {/* Images */}
+            <div className="w-full max-h-[50%]  object-cover overflow-hidden  relative mx-auto">
+              <img className="w-full h-auto " src={item.img} key={i} />
             </div>
-            <div className="w-full h-[50%] flex flex-col space-y-1 p-2">
+            {/* Product details */}
+            <div className="w-full h-auto flex flex-col max-h-[50%] space-y-1 p-2">
               <div className=" text-[15px] text-red-400  font-semibold text-left">
                 {item.company}
               </div>
-              <div className="md:text-[15px] text-black font-semibold">
+              <div className="md:text-[15px] text-black font-semibold  truncate pb-6">
                 {" "}
                 {item.name}
               </div>
@@ -37,7 +44,7 @@ function Products({ prodc }) {
                 <span className="text-[15px] font-bold">{item.price}</span>
               </div>
               <Link to={"/products/cart"}>
-                <button className="w-full rounded-md p-1 text-white font-semibold bg-black hover:bg-red-700 transition duration-500 text-[10px] md:text-[15px]">
+                <button className="w-full mt-2 rounded-md p-1 text-white font-semibold bg-black hover:bg-red-700 transition duration-500 text-[10px] md:text-[15px]">
                   BUY IT NOW
                 </button>
               </Link>

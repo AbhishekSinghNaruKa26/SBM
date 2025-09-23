@@ -16,7 +16,7 @@ function Category({ cat }) {
   };
 
   return (
-    <div className="mt-10 w-full max-w-[1400px] mx-auto shadow-2xl rounded-md">
+    <div className="mt-30 w-full max-w-[1400px] mx-auto shadow-2xl rounded-md">
       <h1 className="mb-10 text-[25px] tracking-widest font-bold absolute ml-5 md:ml-10">
         Category
       </h1>
