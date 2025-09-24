@@ -13,7 +13,6 @@ import FiexdFooter from "./Footer/FiexdFooter";
 import Product from "./Pages/Product";
 import Productcart from "./Pages/Productcart";
 import Addresspayment from "./Pages/Addresspayment";
-<<<<<<< HEAD
 import UserAccount from "./Account/UserAccount";
 import Profile from "./Account/Profile";
 import SaveAddress from "./Account/SaveAddress";
@@ -24,10 +23,10 @@ import QuestionAndAnswer from "./Account/QuestionAndAnswer";
 import TermsAndPolicy from "./Account/TermsAndPolicy";
 import HelpCenter from './Account/HelpCenter';
 
-=======
+
 import Contactus from "./Pages/Contactus";
 import Aboutus from "./Pages/Aboutus";
->>>>>>> feature/all-code
+
 
 function App() {
 
@@ -98,7 +97,7 @@ function App() {
               </>
             }
           ></Route>
-<<<<<<< HEAD
+
 
           {/* Account */}
           <Route path="/Account" element={
@@ -193,8 +192,9 @@ function App() {
             <Productcart />
             <Footer/>
             </>
-          } 
-=======
+          }
+          /> 
+
           {/* amar---- */}
           <Route
             path="/products"
@@ -217,6 +217,7 @@ function App() {
               </>
             }
           />
+
           <Route
             path="/contact-us"
             element={
@@ -236,8 +237,8 @@ function App() {
                 <Footer />
               </>
             }
->>>>>>> feature/all-code
-          />
+            />
+
 
           <Route path="/products/cart/address" element={<Addresspayment />} />
 
