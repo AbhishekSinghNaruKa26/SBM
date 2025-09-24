@@ -15,6 +15,10 @@ import Productcart from "./Pages/Productcart";
 import Addresspayment from "./Pages/Addresspayment";
 import { useState } from "react";
 import UserAccount from "./Account/UserAccount";
+import Profile from "./Account/Profile";
+import SaveAddress from "./Account/SaveAddress";
+import PrivacyPolicy from "./Account/PrivacyPolicy";
+import SelectLanguage from "./Account/SelectLanguage";
 
 
 function App() {
@@ -94,6 +98,39 @@ function App() {
             </>
           }>
           </Route>
+
+           {/* Profile  */}
+          <Route path="/Profile" element={
+            <>
+            <Profile/>
+            </>
+          }>
+          </Route>
+
+           {/* Save Address */}
+          <Route path="/Address" element={
+            <>
+            <SaveAddress/>
+            </>
+          }>
+          </Route>
+
+           {/* Select Language */}
+          <Route path="/Language" element={
+            <>
+            <SelectLanguage/>
+            </>
+          }>
+          </Route>
+
+           {/* Privacy */}
+          <Route path="/Privacy" element={
+            <>
+            <PrivacyPolicy/>
+            </>
+          }>
+          </Route>
+
 
           {/* amar-- Product */}
         

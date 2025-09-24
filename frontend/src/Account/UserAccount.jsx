@@ -15,11 +15,18 @@ import { FaRegPenToSquare } from "react-icons/fa6";
 import { IoChatboxSharp } from "react-icons/io5";
 import { AiTwotoneCopy } from "react-icons/ai";
 import { GrCircleQuestion } from "react-icons/gr";
+import { useNavigate } from 'react-router-dom';
+
 
 
 const UserAccount = () => {
+
+    const navigate = useNavigate();
+
   return (
-    <div className='p-4'>
+    <>
+    
+    <div className='p-4 py-6'>
 
         {/*1. Name and some Styling */}
         <div className='bg-[#f0f5ff] p-3 max-w-[1300px] w-full mx-auto'>
@@ -100,7 +107,7 @@ const UserAccount = () => {
             <div className='font-semibold text-[18px] sm:text-xl'>Account Setting</div>
             
             {/* Edit Profile */}
-            <div className='flex justify-between items-center mt-5 px-2'>
+            <div onClick={()=>navigate('/Profile')} className='flex justify-between items-center mt-5 px-2'>
 
                 <div className='flex items-center gap-2'>
                 <div><FaRegUser className='text-blue-500 font-bold' /></div>
@@ -112,10 +119,13 @@ const UserAccount = () => {
                 </div>
 
                 
+    
+           
+
             </div>
 
             {/* Saved Address */}
-            <div className='flex justify-between items-center mt-5 px-2'>
+            <div onClick={()=>navigate('/Address')} className='flex justify-between items-center mt-5 px-2'>
 
                 <div className='flex items-center gap-1.5'>
                 <div><IoLocationSharp  className='text-blue-500 font-bold text-[17px]' /></div>
@@ -130,7 +140,7 @@ const UserAccount = () => {
             </div>
 
             {/* Select Language */}
-            <div className='flex justify-between items-center mt-5 px-2'>
+            <div onClick={()=>navigate('/Language')} className='flex justify-between items-center mt-5 px-2'>
 
                 <div className='flex items-center gap-1.5'>
                 <div><HiOutlineLanguage  className='text-blue-500 font-bold text-[17px]' /></div>
@@ -145,7 +155,7 @@ const UserAccount = () => {
             </div>
 
             {/* Privacy Center */}
-            <div className='flex justify-between items-center mt-5 px-2'>
+            <div onClick={()=>navigate('/Privacy')} className='flex justify-between items-center mt-5 px-2'>
 
                 <div className='flex items-center gap-1.5'>
                 <div><FaUnlockAlt   className='text-blue-500 font-bold text-[17px]' /></div>
@@ -247,6 +257,7 @@ const UserAccount = () => {
 
 
     </div>
+    </>
   )
 }
 
