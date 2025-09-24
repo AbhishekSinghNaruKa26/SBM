@@ -13,17 +13,20 @@ import FiexdFooter from "./Footer/FiexdFooter";
 import Product from "./Pages/Product";
 import Productcart from "./Pages/Productcart";
 import Addresspayment from "./Pages/Addresspayment";
-import { useState } from "react";
 import UserAccount from "./Account/UserAccount";
 import Profile from "./Account/Profile";
 import SaveAddress from "./Account/SaveAddress";
 import PrivacyPolicy from "./Account/PrivacyPolicy";
 import SelectLanguage from "./Account/SelectLanguage";
+import Review from "./Account/Review";
+import QuestionAndAnswer from "./Account/QuestionAndAnswer";
+import TermsAndPolicy from "./Account/TermsAndPolicy";
+import HelpCenter from './Account/HelpCenter';
 
 
 function App() {
 
-  const [user , setUser] = useState(null)
+
 
   return (
     <>
@@ -129,6 +132,42 @@ function App() {
             <PrivacyPolicy/>
             </>
           }>
+          </Route>
+
+          {/*My Review */}
+          <Route path="/Review" element={
+          <>
+          <Review/>
+          </>
+        }>
+
+          </Route>
+
+          {/* Question And Answer */}
+          <Route path="/QueAndAns" element={
+          <>
+          <QuestionAndAnswer/>
+          </>
+        }>
+
+          </Route>
+
+           {/* Terms , Policy */}
+          <Route path="/Terms" element={
+          <>
+          <TermsAndPolicy/>
+          </>
+        }>
+
+          </Route>
+
+           {/* Help Center */}
+          <Route path="/Help" element={
+          <>
+          <HelpCenter/>
+          </>
+        }>
+
           </Route>
 
 

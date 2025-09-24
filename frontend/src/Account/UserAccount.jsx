@@ -173,12 +173,12 @@ const UserAccount = () => {
         </div>
 
         {/*5. My Review */}
-        <div className='max-w-[1300px] w-full mx-auto mt-6'>
+        <div  className='max-w-[1300px] w-full mx-auto mt-6'>
 
             <div className='font-semibold text-[18px] sm:text-xl'>My Activity</div>
             
             {/* Reviews */}
-            <div className='flex justify-between items-center mt-5 px-2'>
+            <div onClick={()=>navigate('/Review')} className='flex justify-between items-center mt-5 px-2'>
 
                 <div className='flex items-center gap-2'>
                 <div><FaRegPenToSquare  className='text-blue-500 font-bold' /></div>
@@ -193,7 +193,7 @@ const UserAccount = () => {
             </div>
 
             {/* Questions & Answer */}
-            <div className='flex justify-between items-center mt-5 px-2'>
+            <div onClick={()=>navigate('/QueAndAns')} className='flex justify-between items-center mt-5 px-2'>
 
                 <div className='flex items-center gap-1.5'>
                 <div><IoChatboxSharp  className='text-blue-500 font-bold text-[17px]' /></div>
@@ -217,7 +217,7 @@ const UserAccount = () => {
             <div className='font-semibold text-[18px] sm:text-xl'>Feedback &  Information</div>
             
             {/* Terms,Policies and Licenses */}
-            <div className='flex justify-between items-center mt-5 px-2'>
+            <div onClick={()=>navigate('/Terms')} className='flex justify-between items-center mt-5 px-2'>
 
                 <div className='flex items-center gap-2'>
                 <div><AiTwotoneCopy   className='text-blue-500 font-bold' /></div>
@@ -231,12 +231,12 @@ const UserAccount = () => {
                 
             </div>
 
-            {/*Browse FAQ's */}
-            <div className='flex justify-between items-center mt-5 px-2'>
+            {/*Help Center */}
+            <div onClick={()=>navigate('/Help')} className='flex justify-between items-center mt-5 px-2'>
 
                 <div className='flex items-center gap-1.5'>
                 <div><GrCircleQuestion  className='text-blue-500 font-bold text-[17px]' /></div>
-                <div className='text-[14px]'>Browse FAQ's</div>
+                <div className='text-[14px]'>Help Center</div>
                 </div>
 
                 <div>

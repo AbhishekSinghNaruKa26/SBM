@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { LuMoveLeft } from "react-icons/lu";
 import { useNavigate } from 'react-router-dom'
 import { IoIosArrowDown } from "react-icons/io";
+import { FaCheck } from "react-icons/fa6";
+
+
+
 
 const PrivacyPolicy = () => {
 
   const navigate = useNavigate();
+  const [open , setOpen]= useState(false);
+
+  const languages = ["हिन्दी" , "English"]
+  const [selectedLanguage , setSelectedLanguage] = useState("English");
 
   return (
     <>
@@ -21,17 +29,36 @@ const PrivacyPolicy = () => {
       </div>
 
       {/* Select Language Button */}
-      <div className='mt-4  flex  justify-end px-5'>
+      <div className=' mt-4  flex  justify-end px-5'>
 
-        <div className='flex items-center gap-4 border w-fit px-5 py-1 '>
-        <div>English</div>
+        <div onClick={()=>setOpen(!open)} className='flex items-center w-31 gap-7 border-gray-300 border  px-5 py-1 '>
+        <div>{selectedLanguage}</div>
         <div><IoIosArrowDown /></div>
         </div>
 
       </div>
+      {open &&
+        <>
+        <div className='absolute right-5 top-25 space-y-1 pb-6 bg-white z-10'>
+          {languages.map((language,index)=>(
+            <div key={index} className='' >
+            <div onClick={()=>setSelectedLanguage(language)}  className='flex w-31 items-center justify-between gap-4 border border-gray-300 py-1 px-3'> {language} 
+              {selectedLanguage===language && (
+                <div><FaCheck /></div>
+              )}
+               </div>
+            
+            </div>
+          ))
+
+          }
+      
+        </div>
+        </>
+        }
 
       {/* All Description of Privacy Policy */}
-      <div className='p-3 text-center'>
+      <div className='p-3 '>
 
         <div>
           <p>Effective Date: 24 September 2025
