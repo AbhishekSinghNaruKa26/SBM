@@ -12,7 +12,6 @@ function Products({ prodc }) {
         );
   return (
     <div className="my-8 sm:my-15 mx-auto w-full max-w-[1400px] shadow-2xl p-4  rounded-md">
-
       <h1 className="text-[25px] font-bold ml-5 md:ml-10 mb-5 tracking-widest py-3">
         Products
       </h1>
@@ -22,7 +21,6 @@ function Products({ prodc }) {
         {filterItems.map((item, i) => (
           // Product and image details
           <div className=" max-w-[300px] max-h-[400px]    min-w-[120px] w-full mx-auto flex flex-col  justify-center items-center  group relative  rounded-md  whitespace-nowrap border-[2px] border-gray-400 hover:border-[2px] hover:border-black p-2">
-            
             {/* Images */}
             <div className="w-full max-h-[50%]  object-cover overflow-hidden  relative mx-auto">
               <img className="w-full h-auto " src={item.img} key={i} />
@@ -44,7 +42,7 @@ function Products({ prodc }) {
                 <span className="text-[15px] font-bold">{item.price}</span>
               </div>
               <Link to={"/products/cart"}>
-                <button className="w-full mt-2 rounded-md p-1 text-white font-semibold bg-black hover:bg-red-700 transition duration-500 text-[10px] md:text-[15px]">
+                <button className="w-full mt-2 rounded-md p-2 text-white font-semibold bg-black hover:bg-red-700 transition duration-500 text-[15px] md:text-[15px]">
                   BUY IT NOW
                 </button>
               </Link>

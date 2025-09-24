@@ -13,6 +13,7 @@ import FiexdFooter from "./Footer/FiexdFooter";
 import Product from "./Pages/Product";
 import Productcart from "./Pages/Productcart";
 import Addresspayment from "./Pages/Addresspayment";
+<<<<<<< HEAD
 import UserAccount from "./Account/UserAccount";
 import Profile from "./Account/Profile";
 import SaveAddress from "./Account/SaveAddress";
@@ -23,6 +24,10 @@ import QuestionAndAnswer from "./Account/QuestionAndAnswer";
 import TermsAndPolicy from "./Account/TermsAndPolicy";
 import HelpCenter from './Account/HelpCenter';
 
+=======
+import Contactus from "./Pages/Contactus";
+import Aboutus from "./Pages/Aboutus";
+>>>>>>> feature/all-code
 
 function App() {
 
@@ -93,6 +98,7 @@ function App() {
               </>
             }
           ></Route>
+<<<<<<< HEAD
 
           {/* Account */}
           <Route path="/Account" element={
@@ -188,6 +194,49 @@ function App() {
             <Footer/>
             </>
           } 
+=======
+          {/* amar---- */}
+          <Route
+            path="/products"
+            element={
+              <>
+                <Header />
+                <Product />
+                <Footer />
+              </>
+            }
+          />
+
+          <Route
+            path="/products/cart"
+            element={
+              <>
+                <Header />
+                <Productcart />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/contact-us"
+            element={
+              <>
+                <Header />
+                <Contactus />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/about-us"
+            element={
+              <>
+                <Header />
+                <Aboutus />
+                <Footer />
+              </>
+            }
+>>>>>>> feature/all-code
           />
 
           <Route path="/products/cart/address" element={<Addresspayment />} />
