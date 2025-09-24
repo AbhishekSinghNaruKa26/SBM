@@ -103,6 +103,7 @@ function App() {
           <Route path="/Account" element={
             <>
             <UserAccount/>
+            <FiexdFooter/>
             </>
           }>
           </Route>
