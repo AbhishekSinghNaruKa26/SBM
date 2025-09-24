@@ -11,9 +11,9 @@ import { Link, useNavigate } from "react-router-dom";
 const Header = () => {
   const [open, setOpen] = useState(false);
   const lists = [
-    { id: 1, name: "About Us", path: "/about" },
+    { id: 1, name: "About Us", path: "/about-us" },
     { id: 2, name: "Products", path: "/products" },
-    { id: 3, name: "Contact Us", path: "/contact" },
+    { id: 3, name: "Contact Us", path: "/contact-us" },
     { id: 4, name: "CSR", path: "/csr" },
   ];
   const [isScrolled, setIsScrolled] = useState(false);
@@ -151,12 +151,14 @@ const Header = () => {
               {/* Button List */}
               <div className="font-bold tracking-wider mt-8">
                 {lists.map((item) => (
-                    <Link to={item.path}>
-       
-                
-                  <div onClick={()=>setOpen(!open)} key={item.id} className="py-4 text-xl">
-                    {item.name}
-                  </div>
+                  <Link to={item.path}>
+                    <div
+                      onClick={() => setOpen(!open)}
+                      key={item.id}
+                      className="py-4 text-xl"
+                    >
+                      {item.name}
+                    </div>
                   </Link>
                 ))}
               </div>

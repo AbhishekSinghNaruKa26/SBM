@@ -12,6 +12,8 @@ import FiexdFooter from "./Footer/FiexdFooter";
 import Product from "./Pages/Product";
 import Productcart from "./Pages/Productcart";
 import Addresspayment from "./Pages/Addresspayment";
+import Contactus from "./Pages/Contactus";
+import Aboutus from "./Pages/Aboutus";
 
 function App() {
   return (
@@ -80,20 +82,46 @@ function App() {
             }
           ></Route>
           {/* amar---- */}
-          <Route path="/products" element={<>
-            <Header/>
-            <Product />
-            <Footer/>
-            </>
-          } 
+          <Route
+            path="/products"
+            element={
+              <>
+                <Header />
+                <Product />
+                <Footer />
+              </>
+            }
           />
 
-          <Route path="/products/cart" element={<>
-            <Header/>
-            <Productcart />
-            <Footer/>
-            </>
-          } 
+          <Route
+            path="/products/cart"
+            element={
+              <>
+                <Header />
+                <Productcart />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/contact-us"
+            element={
+              <>
+                <Header />
+                <Contactus />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/about-us"
+            element={
+              <>
+                <Header />
+                <Aboutus />
+                <Footer />
+              </>
+            }
           />
           <Route path="/products/cart/address" element={<Addresspayment />} />
         </Routes>
