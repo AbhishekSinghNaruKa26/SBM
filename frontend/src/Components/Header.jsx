@@ -11,11 +11,17 @@ import { Link, useNavigate } from "react-router-dom";
 const Header = () => {
   const [open, setOpen] = useState(false);
   const lists = [
+<<<<<<< HEAD
     { id: 1, name: "Account", path: "/Account" },
     { id: 2, name: "About Us", path: "/about-us" },
     { id: 3, name: "Products", path: "/products" },
     { id: 4, name: "Contact Us", path: "/contact-us" },
     { id: 5, name: "CSR", path: "/csr" },
+=======
+    { id: 1, name: "About Us", path: "/about-us" },
+    { id: 2, name: "Products", path: "/products" },
+    { id: 3, name: "Contact Us", path: "/contact-us" },
+>>>>>>> feature/all-code
   ];
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
