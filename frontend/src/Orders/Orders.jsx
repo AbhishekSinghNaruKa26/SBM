@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LuMoveLeft } from "react-icons/lu";
 import { IoSearchOutline } from "react-icons/io5";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
@@ -16,11 +16,8 @@ const Orders = () => {
             <LuMoveLeft
               onClick={() => navigate("/Account")}
               className="text-white font-bold text-xl"
-            />
-            <Link to="/orders">
-              {" "}
-              <div className="text-lg text-white font-semibold">My Orders</div>
-            </Link>
+            />{" "}
+            <div className="text-lg text-white font-semibold">My Orders</div>
           </div>
         </div>
 
@@ -43,23 +40,25 @@ const Orders = () => {
         {/* Order product List */}
         <div className="mt-27  space-y-6 ">
           {/* Products */}
-          <div className="flex gap-2  items-center justify-between border-b border-gray-500 p-4">
-            <div className="w-[80px]">
-              <img className="w-[61px] h-[72px]" src="haldi.jpeg" alt="" />
-            </div>
+          <Link to="/orders">
+            <div className="flex gap-2  items-center justify-between border-b border-gray-500 p-4">
+              <div className="w-[80px]">
+                <img className="w-[61px] h-[72px]" src="haldi.jpeg" alt="" />
+              </div>
 
-            <div className="w-full">
-              <h1 className="font-semibold"> Delivery expected by Oct 2</h1>
-              <h2 className="text-[13px] text-gray-600">
-                Shree Baalji Masala Haldi adds rich color, taste, and health
-                benefits with purity you can trust.
-              </h2>
-            </div>
+              <div className="w-full">
+                <h1 className="font-semibold"> Delivery expected by Oct 2</h1>
+                <h2 className="text-[13px] text-gray-600">
+                  Shree Baalji Masala Haldi adds rich color, taste, and health
+                  benefits with purity you can trust.
+                </h2>
+              </div>
 
-            <div className="">
-              <MdOutlineKeyboardArrowRight />
+              <div className="">
+                <MdOutlineKeyboardArrowRight />
+              </div>
             </div>
-          </div>
+          </Link>
 
           <div className="flex gap-2  items-center justify-between border-b border-gray-500 p-4">
             <div className="w-[80px]">

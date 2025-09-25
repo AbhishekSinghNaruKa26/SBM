@@ -24,7 +24,7 @@ const handleDecreaseCount = () => {
 
   return (
 
-    <div className='mt-3 p-3 max-w-[1300px]  w-full mx-auto  '>
+    <div className='mt-3 mb-10 p-3 max-w-[1300px]  w-full mx-auto  '>
 
       {/*1 About Product */}
 

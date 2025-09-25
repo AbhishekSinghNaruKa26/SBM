@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
 
-  const naviagte = useNavigate();
+  const navigate = useNavigate();
 
 
   return (
@@ -44,20 +44,21 @@ const Footer = () => {
           {/* logo and details */}
           <div className="w-full max-w-[1266px] mx-auto md:flex md:justify-between md:items-center md:text-[18px] px-6">
             {/* logo */}
-            <div className="">
-              <span className="bg-red-500 font-bold tracking-widest text-white px-2 py-1 rounded">
-                SBM
-              </span>
-            </div>
+            <div
+            onClick={() => navigate("/")}
+            className=" py-1 rounded-full max-w-[74px] w-full  px-1"
+          >
+          <img className=" h-8 w-18 rounded-full" src="SMB-LOGO.png" alt="" />
+          </div>
 
             {/* All List Button */}
             <div className="max-w-[590px] mx-auto w-full mt-4">
               <ul className="columns-2 sm:columns-2 gap-9 lg:flex lg:items-center whitespace-nowrap  font-semibold  leading-10">
-                <li onClick={()=>naviagte('/')} className="">Overview</li>
-                <li onClick={()=>naviagte('/products')} className="">Products</li>
-                <li onClick={()=>naviagte('/')} className=""></li>
-                <li onClick={()=>naviagte('/about-us')} className="">About us</li>
-                <li onClick={()=>naviagte('/contact-us')} className="">Contact</li>
+                <li onClick={()=>navigate('/')} className="">Overview</li>
+                <li onClick={()=>navigate('/products')} className="">Products</li>
+                <li onClick={()=>navigate('/')} className=""></li>
+                <li onClick={()=>navigate('/about-us')} className="">About us</li>
+                <li onClick={()=>navigate('/contact-us')} className="">Contact</li>
               </ul>
             </div>
           </div>

@@ -10,10 +10,10 @@ const DetailContent = () => {
             <h1 className='text-xl font-semibold'>Why Choose SBM ?</h1>
         </div>
 
-        <div className='md:flex grid sm:grid-cols-2  gap-7 md:gap-9 overflow-x-auto ' >
+        <div className='md:flex grid sm:grid-cols-2 h-auto gap-7 md:gap-9 overflow-x-auto  p-3' >
 
         {servicesDeatils.map((item , index)=>(
-            <div key={index} className='flex justify-center items-center '>
+        <div key={index} className='flex justify-center items-center hover:translate-y-[-10px] '>
          <div  className=' max-w-[306px] min-w-[180px] w-full  p-3 shadow-2xl rounded-lg border'>
 
         <div>

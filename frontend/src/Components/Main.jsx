@@ -2,8 +2,12 @@ import React from 'react'
 import exclusiveProducts from '../Data/Exclusive.collection'
 import ProductLove from '../Main.Part/ProductLove'
 import DetailContent from '../Main.Part/DetailContent'
+import { useNavigate } from 'react-router-dom'
 
 const Main = () => {
+
+  const navigate = useNavigate();
+
   return (
     <>
 
@@ -30,7 +34,7 @@ const Main = () => {
                         <span className='text-[16px]'>{product.price}</span>
                     </div>
 
-                    <div className=' my-2 rounded-lg text-white flex justify-center'>
+                    <div onClick={()=>navigate('/products/cart')} className=' my-2 rounded-lg text-white flex justify-center'>
 
                       <button className='group relative bg-black rounded-lg py-1 px-6 '>
 

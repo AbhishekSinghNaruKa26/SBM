@@ -3,7 +3,7 @@ import orderimg from "../../public/IMAGES/spices maslaa/kasmirilalmirch.jpeg";
 import { AiOutlineLike } from "react-icons/ai";
 import exclusiveProducts from "../Data/Exclusive.collection";
 
-function Orders() {
+function Order() {
   return (
     <div className="w-full mx-auto my-20 px-4 flex flex-col items-center space-y-5 sm:space-y-10">
       {/* 1. orders details and pack */}
@@ -188,4 +188,4 @@ function Orders() {
   );
 }
 
-export default Orders;
+export default Order;
