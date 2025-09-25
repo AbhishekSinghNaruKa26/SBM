@@ -20,7 +20,6 @@ import PrivacyPolicy from "./Account/PrivacyPolicy";
 import SelectLanguage from "./Account/SelectLanguage";
 import Review from "./Account/Review";
 import QuestionAndAnswer from "./Account/QuestionAndAnswer";
-import TermsAndPolicy from "./Account/TermsAndPolicy";
 import HelpCenter from "./Account/HelpCenter";
 
 import Contactus from "./Pages/Contactus";
@@ -104,6 +103,27 @@ function App() {
             }
           ></Route>
 
+          {/* Orders */}
+          <Route
+            path="/Order"
+            element={
+              <>
+                <Orders />
+              </>
+            }
+          ></Route>
+
+          {/* Account */}
+          <Route
+            path="/Account"
+            element={
+              <>
+                <UserAccount />
+                <FiexdFooter />
+              </>
+            }
+          ></Route>
+
           {/* Profile  */}
           <Route
             path="/Profile"
@@ -164,12 +184,12 @@ function App() {
             }
           ></Route>
 
-          {/* Terms , Policy */}
+          {/* Help Center */}
           <Route
-            path="/Terms"
+            path="/Help"
             element={
               <>
-                <TermsAndPolicy />
+                <HelpCenter />
               </>
             }
           ></Route>
@@ -216,6 +236,7 @@ function App() {
               <>
                 <Header />
                 <Product />
+                <FiexdFooter />
                 <Footer />
               </>
             }
@@ -227,6 +248,7 @@ function App() {
               <>
                 <Header />
                 <Productcart />
+                <FiexdFooter />
                 <Footer />
               </>
             }
@@ -238,6 +260,7 @@ function App() {
               <>
                 <Header />
                 <Contactus />
+                <FiexdFooter />
                 <Footer />
               </>
             }
@@ -248,13 +271,14 @@ function App() {
               <>
                 <Header />
                 <Aboutus />
+                <FiexdFooter />
                 <Footer />
               </>
             }
           />
 
           <Route path="/products/cart/address" element={<Addresspayment />} />
-          <Route path="/orders" element={<Orders/>}/>
+          <Route path="/orders" element={<Orders />} />
         </Routes>
       </Router>
     </>

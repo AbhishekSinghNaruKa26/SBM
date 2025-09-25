@@ -44,13 +44,13 @@ const Header = () => {
       >
         {/* Heading part  */}
         <div
-          className={`flex gap-2 max-w-[1400px] mx-auto items-center justify-between px-2 py-2   transition-colors duration-300 `}
+          className={`flex gap-2 max-w-[1400px] mx-auto items-center justify-between px-3 py-1  transition-colors duration-300 `}
         >
           <div
             onClick={() => navigate("/")}
-            className="px-4 py-1 bg-red-500 rounded-lg font-semibold tracking-widest text-white hover:border-1 duration-300 hover:border-red-500 hover:bg-white hover:text-black"
+            className="border-white border py-1 rounded-full max-w-[74px] w-full  px-2"
           >
-            SBM
+          <img className=" h-6 w-14 rounded-full " src="SMB-LOGO.png" alt="" />
           </div>
 
           {/* bars for small devices */}
@@ -91,7 +91,7 @@ const Header = () => {
           {/* Icons */}
           <div className=" hidden  md:flex gap-5 items-center lg:gap-11 text-[17px] lg:text-xl mx-2 text-white font-extrabold max-w-[100px] lg:max-w-[150px] w-full">
             <div
-              onClick={() => navigate("/RegisterLogin")}
+              onClick={() => navigate("/Account")}
               className="pb-2 relative group  hover:text-red-700 "
             >
               <span className="relative">
@@ -130,12 +130,12 @@ const Header = () => {
         {/* If Bars Clicked */}
         {open && (
           <>
-            <div className="top-0 left-0 absolute fixed p-4 z-50 text-white  h-screen w-full max-w-[380px] bg-black">
+            <div className="top-0 left-0  fixed p-4 z-50 text-white  h-screen w-full max-w-[380px] bg-black">
               {/* heading part */}
               <div className="1  flex items-center justify-between ">
                 {/* Logo */}
-                <div className="bg-red-500 text-white px-4 py-1 rounded-lg text-xl">
-                  SBM
+                <div onClick={() => navigate("/")} className="border-white border py-1 rounded-full max-w-[74px] w-full  px-2">
+                  <img className=" h-6 w-14 rounded-full " src="SMB-LOGO.png" alt="" />
                 </div>
 
                 {/* x Button */}

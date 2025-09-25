@@ -36,6 +36,7 @@ function Contactus() {
           </div>
         </div>
       </div>
+      
       <div className="max-w-[1100px] w-full mx-auto space-y-10 mt-4 sm:mt-0">
         <div
           className="w-full border border-gray-400 rounded-md py-3 px-4 tracking-widest flex justify-between items-center"

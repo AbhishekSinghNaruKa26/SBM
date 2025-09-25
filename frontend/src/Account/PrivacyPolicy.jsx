@@ -61,7 +61,7 @@ const PrivacyPolicy = () => {
       <div className='p-3 '>
 
         <div>
-          <p>Effective Date: 24 September 2025
+          <p className='text-[14px] leading-6'>Effective Date: 24 September 2025
 
 Balaji Masala (“we,” “our,” or “us”) values your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services. By using our website or services, you agree to the terms of this Privacy Policy.
 

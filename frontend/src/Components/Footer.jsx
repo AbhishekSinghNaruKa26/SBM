@@ -7,8 +7,13 @@ import { SlSocialFacebook } from "react-icons/sl";
 import { RiTwitterXLine } from "react-icons/ri";
 import { SlSocialYoutube } from "react-icons/sl";
 import { FaRegHeart } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+
+  const naviagte = useNavigate();
+
+
   return (
     <>
       <div className="w-full mb-4 md:mb-0">
@@ -47,15 +52,12 @@ const Footer = () => {
 
             {/* All List Button */}
             <div className="max-w-[590px] mx-auto w-full mt-4">
-              <ul className="columns-2 sm:columns-3 gap-9 lg:flex lg:items-center whitespace-nowrap  font-semibold  leading-10">
-                <li className="">Overview</li>
-                <li className="">Products</li>
-                <li className="">Easy Chef</li>
-                <li className="">Tasteeto</li>
-                <li className="">Recipes</li>
-                <li className="">CSR</li>
-                <li className="">Careers</li>
-                <li className="">Contact</li>
+              <ul className="columns-2 sm:columns-2 gap-9 lg:flex lg:items-center whitespace-nowrap  font-semibold  leading-10">
+                <li onClick={()=>naviagte('/')} className="">Overview</li>
+                <li onClick={()=>naviagte('/products')} className="">Products</li>
+                <li onClick={()=>naviagte('/')} className=""></li>
+                <li onClick={()=>naviagte('/about-us')} className="">About us</li>
+                <li onClick={()=>naviagte('/contact-us')} className="">Contact</li>
               </ul>
             </div>
           </div>
