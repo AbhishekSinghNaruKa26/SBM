@@ -21,17 +21,13 @@ import SelectLanguage from "./Account/SelectLanguage";
 import Review from "./Account/Review";
 import QuestionAndAnswer from "./Account/QuestionAndAnswer";
 import TermsAndPolicy from "./Account/TermsAndPolicy";
-import HelpCenter from './Account/HelpCenter';
-
+import HelpCenter from "./Account/HelpCenter";
 
 import Contactus from "./Pages/Contactus";
 import Aboutus from "./Pages/Aboutus";
-
+import Orders from "./Pages/Orders";
 
 function App() {
-
-
-
   return (
     <>
       <Router>
@@ -98,102 +94,120 @@ function App() {
             }
           ></Route>
 
-
           {/* Account */}
-          <Route path="/Account" element={
-            <>
-            <UserAccount/>
-            </>
-          }>
-          </Route>
+          <Route
+            path="/Account"
+            element={
+              <>
+                <UserAccount />
+              </>
+            }
+          ></Route>
 
-           {/* Profile  */}
-          <Route path="/Profile" element={
-            <>
-            <Profile/>
-            </>
-          }>
-          </Route>
+          {/* Profile  */}
+          <Route
+            path="/Profile"
+            element={
+              <>
+                <Profile />
+              </>
+            }
+          ></Route>
 
-           {/* Save Address */}
-          <Route path="/Address" element={
-            <>
-            <SaveAddress/>
-            </>
-          }>
-          </Route>
+          {/* Save Address */}
+          <Route
+            path="/Address"
+            element={
+              <>
+                <SaveAddress />
+              </>
+            }
+          ></Route>
 
-           {/* Select Language */}
-          <Route path="/Language" element={
-            <>
-            <SelectLanguage/>
-            </>
-          }>
-          </Route>
+          {/* Select Language */}
+          <Route
+            path="/Language"
+            element={
+              <>
+                <SelectLanguage />
+              </>
+            }
+          ></Route>
 
-           {/* Privacy */}
-          <Route path="/Privacy" element={
-            <>
-            <PrivacyPolicy/>
-            </>
-          }>
-          </Route>
+          {/* Privacy */}
+          <Route
+            path="/Privacy"
+            element={
+              <>
+                <PrivacyPolicy />
+              </>
+            }
+          ></Route>
 
           {/*My Review */}
-          <Route path="/Review" element={
-          <>
-          <Review/>
-          </>
-        }>
-
-          </Route>
+          <Route
+            path="/Review"
+            element={
+              <>
+                <Review />
+              </>
+            }
+          ></Route>
 
           {/* Question And Answer */}
-          <Route path="/QueAndAns" element={
-          <>
-          <QuestionAndAnswer/>
-          </>
-        }>
+          <Route
+            path="/QueAndAns"
+            element={
+              <>
+                <QuestionAndAnswer />
+              </>
+            }
+          ></Route>
 
-          </Route>
+          {/* Terms , Policy */}
+          <Route
+            path="/Terms"
+            element={
+              <>
+                <TermsAndPolicy />
+              </>
+            }
+          ></Route>
 
-           {/* Terms , Policy */}
-          <Route path="/Terms" element={
-          <>
-          <TermsAndPolicy/>
-          </>
-        }>
-
-          </Route>
-
-           {/* Help Center */}
-          <Route path="/Help" element={
-          <>
-          <HelpCenter/>
-          </>
-        }>
-
-          </Route>
-
+          {/* Help Center */}
+          <Route
+            path="/Help"
+            element={
+              <>
+                <HelpCenter />
+              </>
+            }
+          ></Route>
 
           {/* amar-- Product */}
-        
-          <Route path="/products" element={<>
-            <Header/>
-            <Product />
-            <Footer/>
-            </>
-          } 
+
+          <Route
+            path="/products"
+            element={
+              <>
+                <Header />
+                <Product />
+                <Footer />
+              </>
+            }
           />
 
           {/* Product - cart */}
-          <Route path="/products/cart" element={<>
-            <Header/>
-            <Productcart />
-            <Footer/>
-            </>
-          }
-          /> 
+          <Route
+            path="/products/cart"
+            element={
+              <>
+                <Header />
+                <Productcart />
+                <Footer />
+              </>
+            }
+          />
 
           {/* amar---- */}
           <Route
@@ -237,11 +251,10 @@ function App() {
                 <Footer />
               </>
             }
-            />
-
+          />
 
           <Route path="/products/cart/address" element={<Addresspayment />} />
-
+          <Route path="/orders" element={<Orders/>}/>
         </Routes>
       </Router>
     </>

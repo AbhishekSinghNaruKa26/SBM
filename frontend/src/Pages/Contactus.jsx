@@ -51,7 +51,7 @@ function Contactus() {
           )}
         </div>
         {active && (
-          <div className="w-full shadow-md rounded-md py-3 px-4 tracking-widest flex flex-col space-y-4">
+          <div className="w-full shadow-md rounded-md py-3 px-4 flex flex-col space-y-4">
             {options.map((item, index) => (
               <span
                 key={index}

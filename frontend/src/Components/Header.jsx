@@ -14,7 +14,6 @@ const Header = () => {
     { id: 1, name: "About Us", path: "/about-us" },
     { id: 2, name: "Products", path: "/products" },
     { id: 3, name: "Contact Us", path: "/contact-us" },
-    { id: 4, name: "CSR", path: "/csr" },
   ];
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
