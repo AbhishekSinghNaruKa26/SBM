@@ -27,6 +27,7 @@ import HelpCenter from './Account/HelpCenter';
 import Contactus from "./Pages/Contactus";
 import Aboutus from "./Pages/Aboutus";
 import Orders from "./Orders/Orders";
+import ScrollToTop from "./ScrollToTop";
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
   return (
     <>
       <Router>
+        <ScrollToTop/>
         <Routes>
           {/* Home */}
           <Route

@@ -8,8 +8,8 @@ function Description({ desc }) {
         Why choose SBM?
       </div>
       <div className=" grid grid-cols-1 sm:grid-cols-2 md:flex items-center space-y-5 sm:space-y-0 sm:space-x-0 gap-4  max-w-[1300px] w-full mx-auto">
-        {desc.map((item) => (
-          <div className="w-full min-h-[190px] flex flex-col items-center justify-center p-4 space-y-2 rounded-md shadow-md border border-gray-400 hover:border-green-400 mx-auto max-w-[300px]">
+        {desc.map((item, index) => (
+          <div key={index} className="w-full min-h-[190px] flex flex-col items-center justify-center p-4 space-y-2 rounded-md shadow-md border border-gray-400 hover:border-green-400 mx-auto max-w-[300px] hover:translate-y-[-10px]">
             <div className="h-[40px] w-[40px]">
               <img src={item.src} />
             </div>

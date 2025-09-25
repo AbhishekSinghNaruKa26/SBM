@@ -26,7 +26,7 @@ const UserAccount = () => {
   return (
     <>
     
-    <div className='p-4 py-6'>
+    <div className='p-4 py-6  mb-18'>
 
         {/*1. Name and some Styling */}
         <div className='bg-[#f0f5ff] p-5 max-w-[1300px] w-full mx-auto'>
@@ -38,7 +38,7 @@ const UserAccount = () => {
 
             {/* Login button*/}
                 <div onClick={()=>navigate('/RegisterLogin')} className=''>
-                    <button className='relative group  rounded-2xl w-30 py-2 hover:text-white border border-black font-semibold'>
+                    <button className='relative group  rounded-2xl w-30 py-2 hover:text-white text-red-500 border border-red-500 font-semibold'>
                         <span className='relative z-10'>Login in</span>
                         <span className='absolute left-0 top-0 rounded-2xl w-0 h-full transition-all bg-red-500 duration-500 group-hover:w-full '></span>     
                     </button>

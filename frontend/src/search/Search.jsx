@@ -27,8 +27,13 @@ const Search = () => {
 
       </div>
 
+      {/* You Haven't Search Any products */}
+      <div className="flex items-center justify-center mt-60">
+        <div className="text-[17px] sm:text-lg" >You haven't search any products yet</div>
+      </div>
+
       {/* Product */}
-        <div className='grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6 mt-10 max-w-[1300px] p-4 mx-auto w-full'>
+        {/* <div className='grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6 mt-10 max-w-[1300px] p-4 mx-auto w-full'>
 
             {wishListProducts.map((product,index)=>(
 
@@ -67,7 +72,7 @@ const Search = () => {
             }
             
 
-        </div>
+        </div> */}
 
 
     </div>
