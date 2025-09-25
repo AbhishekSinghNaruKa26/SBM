@@ -20,7 +20,7 @@ import PrivacyPolicy from "./Account/PrivacyPolicy";
 import SelectLanguage from "./Account/SelectLanguage";
 import Review from "./Account/Review";
 import QuestionAndAnswer from "./Account/QuestionAndAnswer";
-<<<<<<< HEAD
+
 
 import HelpCenter from './Account/HelpCenter';
 
@@ -30,14 +30,12 @@ import Aboutus from "./Pages/Aboutus";
 import Orders from "./Orders/Orders";
 import ScrollToTop from "./ScrollToTop";
 
-=======
-import TermsAndPolicy from "./Account/TermsAndPolicy";
-import HelpCenter from "./Account/HelpCenter";
 
-import Contactus from "./Pages/Contactus";
-import Aboutus from "./Pages/Aboutus";
-import Orders from "./Pages/Orders";
->>>>>>> feature/all-code
+
+
+
+import Order from "./Pages/Order";
+
 
 function App() {
   return (
@@ -107,7 +105,7 @@ function App() {
             }
           ></Route>
 
-<<<<<<< HEAD
+
           {/* Orders */}
           <Route path="/Order" element={
             <>
@@ -124,7 +122,7 @@ function App() {
             </>
           }>
           </Route>
-=======
+
           {/* Account */}
           <Route
             path="/Account"
@@ -134,7 +132,7 @@ function App() {
               </>
             }
           ></Route>
->>>>>>> feature/all-code
+
 
           {/* Profile  */}
           <Route
@@ -196,8 +194,8 @@ function App() {
             }
           ></Route>
 
-<<<<<<< HEAD
-          </Route>
+
+ 
 
 
            {/* Help Center */}
@@ -208,17 +206,8 @@ function App() {
         }>
 
           </Route>
-=======
-          {/* Terms , Policy */}
-          <Route
-            path="/Terms"
-            element={
-              <>
-                <TermsAndPolicy />
-              </>
-            }
-          ></Route>
->>>>>>> feature/all-code
+
+        
 
           {/* Help Center */}
           <Route
@@ -306,7 +295,7 @@ function App() {
           />
 
           <Route path="/products/cart/address" element={<Addresspayment />} />
-          <Route path="/orders" element={<Orders/>}/>
+          <Route path="/orders" element={<Order/>}/>
         </Routes>
       </Router>
     </>
