@@ -11,9 +11,13 @@ import { Link, useNavigate } from "react-router-dom";
 const Header = () => {
   const [open, setOpen] = useState(false);
   const lists = [
-    { id: 1, name: "About Us", path: "/about-us" },
-    { id: 2, name: "Products", path: "/products" },
-    { id: 3, name: "Contact Us", path: "/contact-us" },
+
+    { id: 1, name: "Account", path: "/Account" },
+    { id: 2, name: "About Us", path: "/about-us" },
+    { id: 3, name: "Products", path: "/products" },
+    { id: 4, name: "Contact Us", path: "/contact-us" },
+    { id: 5, name: "CSR", path: "/csr" },
+
   ];
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
@@ -50,7 +54,7 @@ const Header = () => {
             onClick={() => navigate("/")}
             className=" py-1 rounded-full max-w-[74px] w-full  px-1"
           >
-          <img className=" h-8 w-18 rounded-full" src="SMB-LOGO.png" alt="" />
+            <img className=" h-8 w-18 rounded-full" src="SMB-LOGO.png" alt="" />
           </div>
 
           {/* bars for small devices */}
@@ -135,8 +139,15 @@ const Header = () => {
               {/* heading part */}
               <div className="1  flex items-center justify-between ">
                 {/* Logo */}
-                <div onClick={() => navigate("/")} className="border-white border py-1 rounded-full max-w-[74px] w-full  px-2">
-                  <img className=" h-6 w-14 rounded-full " src="SMB-LOGO.png" alt="" />
+                <div
+                  onClick={() => navigate("/")}
+                  className="border-white border py-1 rounded-full max-w-[74px] w-full  px-2"
+                >
+                  <img
+                    className=" h-6 w-14 rounded-full "
+                    src="SMB-LOGO.png"
+                    alt=""
+                  />
                 </div>
 
                 {/* x Button */}

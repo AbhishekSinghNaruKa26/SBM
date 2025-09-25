@@ -22,26 +22,22 @@ import Review from "./Account/Review";
 import QuestionAndAnswer from "./Account/QuestionAndAnswer";
 
 
-import HelpCenter from './Account/HelpCenter';
 
+
+import HelpCenter from "./Account/HelpCenter";
 
 import Contactus from "./Pages/Contactus";
 import Aboutus from "./Pages/Aboutus";
 import Orders from "./Orders/Orders";
-import ScrollToTop from "./ScrollToTop";
-
-
-
-
-
 import Order from "./Pages/Order";
+import ScrollToTop from "./ScrollToTop";
 
 
 function App() {
   return (
     <>
       <Router>
-        <ScrollToTop/>
+        <ScrollToTop />
         <Routes>
           {/* Home */}
           <Route
@@ -56,7 +52,6 @@ function App() {
               </>
             }
           ></Route>
-
           {/* Login */}
           <Route
             path="/RegisterLogin"
@@ -68,7 +63,6 @@ function App() {
               </>
             }
           ></Route>
-
           {/* WishList */}
           <Route
             path="/WishList"
@@ -81,7 +75,6 @@ function App() {
               </>
             }
           ></Route>
-
           {/* Add To Cart */}
           <Route
             path="/AddTocart"
@@ -92,7 +85,6 @@ function App() {
               </>
             }
           ></Route>
-
           {/* Search */}
           <Route
             path="/Search"
@@ -106,15 +98,19 @@ function App() {
           ></Route>
 
 
-          {/* Orders */}
-          <Route path="/Order" element={
-            <>
-            <Orders/>
-            </>
-          }>
-          </Route>
 
+
+          {/* Orders */}
+          <Route
+            path="/Order"
+            element={
+              <>
+                <Orders />
+              </>
+            }
+          ></Route>
           {/* Account */}
+
           <Route path="/Account" element={
             <>
             <UserAccount/>
@@ -122,6 +118,17 @@ function App() {
             </>
           }>
           </Route>
+
+
+          <Route
+            path="/Account"
+            element={
+              <>
+                <UserAccount />
+                <FiexdFooter />
+              </>
+            }
+          ></Route>
 
           {/* Account */}
           <Route
@@ -133,7 +140,6 @@ function App() {
             }
           ></Route>
 
-
           {/* Profile  */}
           <Route
             path="/Profile"
@@ -143,7 +149,6 @@ function App() {
               </>
             }
           ></Route>
-
           {/* Save Address */}
           <Route
             path="/Address"
@@ -153,7 +158,6 @@ function App() {
               </>
             }
           ></Route>
-
           {/* Select Language */}
           <Route
             path="/Language"
@@ -163,7 +167,6 @@ function App() {
               </>
             }
           ></Route>
-
           {/* Privacy */}
           <Route
             path="/Privacy"
@@ -173,7 +176,6 @@ function App() {
               </>
             }
           ></Route>
-
           {/*My Review */}
           <Route
             path="/Review"
@@ -183,7 +185,6 @@ function App() {
               </>
             }
           ></Route>
-
           {/* Question And Answer */}
           <Route
             path="/QueAndAns"
@@ -209,6 +210,8 @@ function App() {
 
         
 
+
+
           {/* Help Center */}
           <Route
             path="/Help"
@@ -218,11 +221,7 @@ function App() {
               </>
             }
           ></Route>
-
-
-
           {/* amar-- Product */}
-
           <Route
             path="/products"
             element={
@@ -233,7 +232,6 @@ function App() {
               </>
             }
           />
-
           {/* Product - cart */}
           <Route
             path="/products/cart"
@@ -245,7 +243,6 @@ function App() {
               </>
             }
           />
-
           {/* amar---- */}
           <Route
             path="/products"
@@ -253,31 +250,29 @@ function App() {
               <>
                 <Header />
                 <Product />
-                <FiexdFooter/>
+                <FiexdFooter />
                 <Footer />
               </>
             }
           />
-
           <Route
             path="/products/cart"
             element={
               <>
                 <Header />
                 <Productcart />
-                <FiexdFooter/> 
+                <FiexdFooter />
                 <Footer />
               </>
             }
           />
-
           <Route
             path="/contact-us"
             element={
               <>
                 <Header />
                 <Contactus />
-                <FiexdFooter/> 
+                <FiexdFooter />
                 <Footer />
               </>
             }
@@ -288,14 +283,16 @@ function App() {
               <>
                 <Header />
                 <Aboutus />
-                <FiexdFooter/>
+                <FiexdFooter />
                 <Footer />
               </>
             }
           />
-
           <Route path="/products/cart/address" element={<Addresspayment />} />
+
           <Route path="/orders" element={<Order/>}/>
+
+
         </Routes>
       </Router>
     </>
