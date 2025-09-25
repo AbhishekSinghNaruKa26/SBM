@@ -96,6 +96,7 @@ function Cartdetails({ cart }) {
         <div className="text-base md:text-[16px] text-black tracking-wider font-semibold mt-2 md:mt-4">
           Quantity
         </div>
+
         {/* quantity and buy it now button and sign out button */}
         <div className="flex items-center space-x-5 md:mt-[-8px]">
           <div className="w-[120px] md:w-[170px] h-[50px] md:h-[60px] border-2 md:border-[3px] border-gray-400 rounded-md flex justify-center items-center space-x-4.5 md:space-x-10 ">
@@ -121,6 +122,7 @@ function Cartdetails({ cart }) {
             </div>
           </Link>
         </div>
+
         {/* Wishlist and Compare products */}
         <div className="flex space-x-5">
           <span className="text-base md:text-[22px] text-black tracking-wider font-semibold  flex items-center gap-1.5">
@@ -132,6 +134,7 @@ function Cartdetails({ cart }) {
             Compare
           </span>
         </div>
+
         <div className="space-y-2">
           <span className="flex space-x-3">
             <p className="text-base md:text-[20px] text-black tracking-wider font-bold">
@@ -158,6 +161,7 @@ function Cartdetails({ cart }) {
             </p>
           </span>
         </div>
+
         <div
           className="w-full h-[50px] md:h-[60px] p-5 bg-gray-300 text-base md:text-[20px] text-black flex items-center justify-between tracking-wider gap-2 font-semibold"
           onClick={() => setActive(!active)}
@@ -171,6 +175,7 @@ function Cartdetails({ cart }) {
             <IoIosArrowDown className="text-base md:text-[20px]" />
           )}
         </div>
+        
         {active && (
           <div className="flex flex-col space-y-2 text-gray-600 ">
             <span className="text-base md:text-[20px]">

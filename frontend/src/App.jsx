@@ -20,12 +20,13 @@ import PrivacyPolicy from "./Account/PrivacyPolicy";
 import SelectLanguage from "./Account/SelectLanguage";
 import Review from "./Account/Review";
 import QuestionAndAnswer from "./Account/QuestionAndAnswer";
-import TermsAndPolicy from "./Account/TermsAndPolicy";
+
 import HelpCenter from './Account/HelpCenter';
 
 
 import Contactus from "./Pages/Contactus";
 import Aboutus from "./Pages/Aboutus";
+import Orders from "./Orders/Orders";
 
 
 function App() {
@@ -98,6 +99,13 @@ function App() {
             }
           ></Route>
 
+          {/* Orders */}
+          <Route path="/Order" element={
+            <>
+            <Orders/>
+            </>
+          }>
+          </Route>
 
           {/* Account */}
           <Route path="/Account" element={
@@ -158,14 +166,6 @@ function App() {
 
           </Route>
 
-           {/* Terms , Policy */}
-          <Route path="/Terms" element={
-          <>
-          <TermsAndPolicy/>
-          </>
-        }>
-
-          </Route>
 
            {/* Help Center */}
           <Route path="/Help" element={
@@ -175,6 +175,8 @@ function App() {
         }>
 
           </Route>
+
+
 
 
           {/* amar-- Product */}
@@ -203,6 +205,7 @@ function App() {
               <>
                 <Header />
                 <Product />
+                <FiexdFooter/>
                 <Footer />
               </>
             }
@@ -214,6 +217,7 @@ function App() {
               <>
                 <Header />
                 <Productcart />
+                <FiexdFooter/> 
                 <Footer />
               </>
             }
@@ -225,6 +229,7 @@ function App() {
               <>
                 <Header />
                 <Contactus />
+                <FiexdFooter/> 
                 <Footer />
               </>
             }
@@ -235,6 +240,7 @@ function App() {
               <>
                 <Header />
                 <Aboutus />
+                <FiexdFooter/>
                 <Footer />
               </>
             }

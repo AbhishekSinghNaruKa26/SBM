@@ -29,25 +29,38 @@ const UserAccount = () => {
     <div className='p-4 py-6'>
 
         {/*1. Name and some Styling */}
-        <div className='bg-[#f0f5ff] p-3 max-w-[1300px] w-full mx-auto'>
+        <div className='bg-[#f0f5ff] p-5 max-w-[1300px] w-full mx-auto'>
 
             {/* Name and Star */}
             <div className='flex justify-between'>
                 {/* Name */}
-            <div className='text-xl font-semibold'>Abhishek Singh </div>
+            <div className='text-md font-semibold'>Login to get details </div>
 
-            {/* Star */}
-            <div className='flex items-center gap-1  px-3 text-amber-400 border-1 border-amber-300 rounded-2xl'>
-                <div><MdStarPurple500 /></div>
-                <div className='text-black font-semibold'>0</div>
-            </div>
+            {/* Login button*/}
+                <div onClick={()=>navigate('/RegisterLogin')} className=''>
+                    <button className='relative group  rounded-2xl w-30 py-2 hover:text-white border border-black font-semibold'>
+                        <span className='relative z-10'>Login in</span>
+                        <span className='absolute left-0 top-0 rounded-2xl w-0 h-full transition-all bg-red-500 duration-500 group-hover:w-full '></span>     
+                    </button>
+                </div>
+
+
             </div>
 
             {/* Explore and 1 image */}
+            <div className='flex justify-between'> 
+            
             <div className='flex items-center mt-3 gap-2 text-gray-800'>
                 <div>Explore</div>
                 <img className='w-[85px] h-[11px]' src="plusSilver.png" alt="" />
                 <FaAngleRight className='text-[12px] '/>
+            </div>
+
+            <div className='flex items-center gap-1 mt-8 px-4 text-amber-400 border-1 border-amber-300 rounded-2xl'>
+                <div><MdStarPurple500 /></div>
+                <div className='text-black font-semibold'>0</div>
+                </div>
+
             </div>
 
         </div>
@@ -57,25 +70,25 @@ const UserAccount = () => {
         <div className='mt-6 grid grid-cols-2 gap-4 max-w-[1300px] w-full mx-auto shadow-2xl rounded px-2 whitespace-nowrap pb-5'> 
 
             {/* Order */}
-            <div className='flex items-center gap-1 border border-gray-400 px-3 py-2 rounded'> 
+            <div onClick={()=>navigate('/Order')} className='flex items-center gap-1 border border-gray-400 px-3 py-2 rounded'> 
                 <div><IoCubeOutline className='text-blue-600 font-bold text-xl' /></div>
                 <div className='font-semibold'>Orders</div>
             </div>
 
             {/* WishList */}
-            <div className='flex items-center gap-1 border border-gray-400  px-3 py-2 rounded'> 
+            <div onClick={()=>navigate('/WishList')} className='flex items-center gap-1 border border-gray-400  px-3 py-2 rounded'> 
                 <div><IoMdHeartEmpty className='text-blue-600 font-bold text-xl' /></div>
                 <div className='font-semibold'>WishList</div>
             </div>
 
             {/* About us */}
-            <div className='flex items-center gap-1 border border-gray-400  px-3 py-2 rounded'> 
+            <div onClick={()=>navigate('/about-us')} className='flex items-center gap-1 border border-gray-400  px-3 py-2 rounded'> 
                 <div><HiMiniUserGroup className='text-blue-600 font-bold text-xl' /></div>
                 <div className='font-semibold'>About Us</div>
             </div>
 
             {/* Help center */}
-            <div className='flex items-center gap-1 border border-gray-400  px-3 py-2 rounded'> 
+            <div onClick={()=>navigate('/Help')} className='flex items-center gap-1 border border-gray-400  px-3 py-2 rounded'> 
                 <div><TfiHeadphoneAlt className='text-blue-600 font-bold text-xl' /></div>
                 <div className='font-semibold'>Help Center</div>
             </div>
@@ -86,7 +99,7 @@ const UserAccount = () => {
         <div className='max-w-[1300px] w-full mx-auto mt-7 px-3 font-semibold text-[18px] sm:text-xl' >Recently Viewed Items</div>
         <div className='flex gap-2 mt-6 overflow-x-auto max-w-[1300px] w-full mx-auto shadow-2xl pb-4'>
             {exclusiveProducts.map((product  , index)=>(
-                <div key={index} className='px-3 border border-gray-400 pb-2 min-w-35 max-w-48 whitespace-nowrap truncate rounded-lg mx-3 '>
+                <div onClick={()=>navigate('/products/cart')} key={index} className='px-3 border border-gray-400 pb-2 min-w-35 max-w-48 whitespace-nowrap truncate rounded-lg mx-3 '>
                     <div className='flex justify-center my-2'><img className='h-20 w-15' src={product.img} alt="" /></div> 
 
                     <div className='font-bold my-1 text-red-600'><h1>{product.companyName}</h1></div>
@@ -215,21 +228,6 @@ const UserAccount = () => {
         <div className='max-w-[1300px] w-full mx-auto mt-6'>
 
             <div className='font-semibold text-[18px] sm:text-xl'>Feedback &  Information</div>
-            
-            {/* Terms,Policies and Licenses */}
-            <div onClick={()=>navigate('/Terms')} className='flex justify-between items-center mt-5 px-2'>
-
-                <div className='flex items-center gap-2'>
-                <div><AiTwotoneCopy   className='text-blue-500 font-bold' /></div>
-                <div className='text-[14px]'>Terms,Policies and Licenses</div>
-                </div>
-
-                <div>
-                    <FaChevronRight  className='text-[12px] '/>
-                </div>
-
-                
-            </div>
 
             {/*Help Center */}
             <div onClick={()=>navigate('/Help')} className='flex justify-between items-center mt-5 px-2'>
