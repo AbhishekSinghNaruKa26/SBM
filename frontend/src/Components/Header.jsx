@@ -15,7 +15,7 @@ const Header = () => {
     { id: 3, name: "Products", path: "/products" },
     { id: 4, name: "Contact Us", path: "/contact-us" },
   ];
-  
+
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
 
@@ -49,7 +49,7 @@ const Header = () => {
         >
           <div
             onClick={() => navigate("/")}
-            className=" py-1 rounded-full max-w-[74px] w-full  px-1"
+            className=" py-1 rounded-full max-w-[74px] w-full"
           >
             <img className=" h-8 w-18 rounded-full" src="SMB-LOGO.png" alt="" />
           </div>
