@@ -14,7 +14,7 @@ function Cartdetails({ cart }) {
   const [active, setActive] = useState(false);
   const [isactive, setIsactive] = useState(false);
   return (
-    <div className="w-full min-h-screen flex flex-col md:flex-row  mx-auto mb-10 md:mb-35 mt-40">
+    <div className="w-full min-h-screen flex flex-col md:flex-row  mx-auto mb-10 md:mb-35  mt-25">
       {/* image protion */}
       <div className="md:ml-10 w-full md:w-[40%]   md:h-full object-cover overflow-hidden md:sticky top-0 border border-gray-200 flex items-center">
         <img

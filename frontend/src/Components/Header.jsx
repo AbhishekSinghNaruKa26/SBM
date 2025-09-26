@@ -7,6 +7,7 @@ import { GrCart } from "react-icons/gr";
 import { LuHeart } from "react-icons/lu";
 import { IoSearchSharp } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
+import sbmlogo from "../../public/IMAGES/BlendMasla/Sbmlogo.png";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -49,9 +50,9 @@ const Header = () => {
         >
           <div
             onClick={() => navigate("/")}
-            className=" py-1 rounded-full max-w-[74px] w-full"
+            className=" p-1 rounded bg-black max-w-[86px] flex justify-center w-full px-1"
           >
-            <img className=" h-8 w-18 rounded-full" src="SMB-LOGO.png" alt="" />
+            <img className=" h-8 w-18 rounded" src={sbmlogo} alt="" />
           </div>
 
           {/* bars for small devices */}
