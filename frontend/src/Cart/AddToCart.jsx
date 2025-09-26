@@ -24,11 +24,9 @@ const handleDecreaseCount = () => {
 
   return (
 
-    <div className='mt-3 mb-10 p-3 max-w-[1300px]  w-full mx-auto  '>
+    <div className='mt-3 mb-12 p-3 max-w-[1300px]  w-full mx-auto  '>
 
       {/*1 About Product */}
-
-
 
         {/* My cart And button */}
         <div onClick={()=>navigate('/')} className="flex items-center gap-4 fixed top-0  bg-white w-full h-16">
@@ -47,12 +45,12 @@ const handleDecreaseCount = () => {
 
         {/* Product Details */}
 
-        <div className="mt-6 shadow-2xl p-2 py-4 space-y-8 max-w-[750px] w-full h-screen overflow-y-auto">
+        <div className="mt-6 shadow-2xl  py-4 space-y-8 max-w-[750px] w-full h-screen overflow-y-auto">
 
            {/* image and product details */}
           {wishListProducts.map((product, index)=>(
            
-          <div key={index} className="mt-4 shadow-2xl">
+          <div key={index} className="mt-4 shadow-2xl p-3">
 
             {/* Attaraction Line */}
           <div className="bg-green-200 mb-3 w-fit px-2 text-[12px] py-0.5">
@@ -86,7 +84,7 @@ const handleDecreaseCount = () => {
 
           {/* Remove Or Buy It Now */}
 
-          <div className="flex justify-between gap-5 max-w-[700px] w-full mx-auto px-2 mt-4">
+          <div className="flex justify-between gap-5 max-w-full w-full mx-auto px-2 mt-4">
 
             <div className="w-full flex justify-center bg-black text-white rounded">
               <button className="relative group w-full py-2">
@@ -112,9 +110,9 @@ const handleDecreaseCount = () => {
           </div>
           ))
 
-        }
+          }
 
-        </div>
+        </div> 
         
 
       {/*2 About Cart Total  */}

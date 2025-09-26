@@ -20,12 +20,7 @@ import PrivacyPolicy from "./Account/PrivacyPolicy";
 import SelectLanguage from "./Account/SelectLanguage";
 import Review from "./Account/Review";
 import QuestionAndAnswer from "./Account/QuestionAndAnswer";
-
-
-
-
 import HelpCenter from "./Account/HelpCenter";
-
 import Contactus from "./Pages/Contactus";
 import Aboutus from "./Pages/Aboutus";
 import Orders from "./Orders/Orders";
@@ -38,7 +33,9 @@ function App() {
     <>
       <Router>
         <ScrollToTop />
+
         <Routes>
+
           {/* Home */}
           <Route
             path="/"
@@ -52,6 +49,7 @@ function App() {
               </>
             }
           ></Route>
+
           {/* Login */}
           <Route
             path="/RegisterLogin"
@@ -63,6 +61,7 @@ function App() {
               </>
             }
           ></Route>
+
           {/* WishList */}
           <Route
             path="/WishList"
@@ -75,6 +74,7 @@ function App() {
               </>
             }
           ></Route>
+
           {/* Add To Cart */}
           <Route
             path="/AddTocart"
@@ -85,6 +85,7 @@ function App() {
               </>
             }
           ></Route>
+
           {/* Search */}
           <Route
             path="/Search"
@@ -97,9 +98,6 @@ function App() {
             }
           ></Route>
 
-
-
-
           {/* Orders */}
           <Route
             path="/Order"
@@ -109,6 +107,7 @@ function App() {
               </>
             }
           ></Route>
+
           {/* Account */}
 
           <Route path="/Account" element={
@@ -119,27 +118,6 @@ function App() {
           }>
           </Route>
 
-
-          <Route
-            path="/Account"
-            element={
-              <>
-                <UserAccount />
-                <FiexdFooter />
-              </>
-            }
-          ></Route>
-
-          {/* Account */}
-          <Route
-            path="/Account"
-            element={
-              <>
-                <UserAccount />
-              </>
-            }
-          ></Route>
-
           {/* Profile  */}
           <Route
             path="/Profile"
@@ -149,6 +127,8 @@ function App() {
               </>
             }
           ></Route>
+
+
           {/* Save Address */}
           <Route
             path="/Address"
@@ -158,6 +138,7 @@ function App() {
               </>
             }
           ></Route>
+
           {/* Select Language */}
           <Route
             path="/Language"
@@ -167,6 +148,7 @@ function App() {
               </>
             }
           ></Route>
+
           {/* Privacy */}
           <Route
             path="/Privacy"
@@ -176,6 +158,7 @@ function App() {
               </>
             }
           ></Route>
+
           {/*My Review */}
           <Route
             path="/Review"
@@ -185,6 +168,7 @@ function App() {
               </>
             }
           ></Route>
+
           {/* Question And Answer */}
           <Route
             path="/QueAndAns"
@@ -196,56 +180,19 @@ function App() {
           ></Route>
 
 
- 
-
-
            {/* Help Center */}
           <Route path="/Help" element={
           <>
           <HelpCenter/>
           </>
-        }>
+          }>
 
           </Route>
 
-        
 
-
-
-          {/* Help Center */}
-          <Route
-            path="/Help"
-            element={
-              <>
-                <HelpCenter />
-              </>
-            }
-          ></Route>
-          {/* amar-- Product */}
-          <Route
-            path="/products"
-            element={
-              <>
-                <Header />
-                <Product />
-                <Footer />
-              </>
-            }
-          />
-          {/* Product - cart */}
-          <Route
-            path="/products/cart"
-            element={
-              <>
-                <Header />
-                <Productcart />
-                <Footer />
-              </>
-            }
-          />
+ 
           {/* amar---- */}
-          <Route
-            path="/products"
+          <Route path="/products"
             element={
               <>
                 <Header />
@@ -255,6 +202,8 @@ function App() {
               </>
             }
           />
+
+          {/* Products Cart */}
           <Route
             path="/products/cart"
             element={
@@ -266,8 +215,9 @@ function App() {
               </>
             }
           />
-          <Route
-            path="/contact-us"
+
+          {/* Contact */}
+          <Route path="/contact-us"
             element={
               <>
                 <Header />
@@ -277,6 +227,8 @@ function App() {
               </>
             }
           />
+
+          {/* About us */}
           <Route
             path="/about-us"
             element={
@@ -288,8 +240,11 @@ function App() {
               </>
             }
           />
+
+          {/* Address Payment */}
           <Route path="/products/cart/address" element={<Addresspayment />} />
 
+          {/* Order */}
           <Route path="/orders" element={<Order/>}/>
 
 

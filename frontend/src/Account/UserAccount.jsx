@@ -32,15 +32,15 @@ const UserAccount = () => {
         <div className='bg-[#f0f5ff] p-5 max-w-[1300px] w-full mx-auto'>
 
             {/* Name and Star */}
-            <div className='flex justify-between'>
+            <div className='flex justify-between items-center'>
                 {/* Name */}
             <div className='text-md font-semibold'>Login to get details </div>
 
             {/* Login button*/}
                 <div onClick={()=>navigate('/RegisterLogin')} className=''>
-                    <button className='relative group  rounded-2xl w-30 py-2 hover:text-white text-red-500 border border-red-500 font-semibold'>
+                    <button className='relative group  rounded-2xl w-30 py-2 hover:text-white text-red-600 border border-red-500 font-semibold'>
                         <span className='relative z-10'>Login in</span>
-                        <span className='absolute left-0 top-0 rounded-2xl w-0 h-full transition-all bg-red-500 duration-500 group-hover:w-full '></span>     
+                        <span className='absolute left-0 top-0 rounded-2xl w-0 h-full transition-all bg-red-600 duration-500 group-hover:w-full '></span>     
                     </button>
                 </div>
 
@@ -71,25 +71,25 @@ const UserAccount = () => {
 
             {/* Order */}
             <div onClick={()=>navigate('/Order')} className='flex items-center gap-1 border border-gray-400 px-3 py-2 rounded'> 
-                <div><IoCubeOutline className='text-blue-600 font-bold text-xl' /></div>
+                <div><IoCubeOutline className='text-red-600 font-bold text-xl' /></div>
                 <div className='font-semibold'>Orders</div>
             </div>
 
             {/* WishList */}
             <div onClick={()=>navigate('/WishList')} className='flex items-center gap-1 border border-gray-400  px-3 py-2 rounded'> 
-                <div><IoMdHeartEmpty className='text-blue-600 font-bold text-xl' /></div>
+                <div><IoMdHeartEmpty className='text-red-600 font-bold text-xl' /></div>
                 <div className='font-semibold'>WishList</div>
             </div>
 
             {/* About us */}
             <div onClick={()=>navigate('/about-us')} className='flex items-center gap-1 border border-gray-400  px-3 py-2 rounded'> 
-                <div><HiMiniUserGroup className='text-blue-600 font-bold text-xl' /></div>
+                <div><HiMiniUserGroup className='text-red-600 font-bold text-xl' /></div>
                 <div className='font-semibold'>About Us</div>
             </div>
 
             {/* Help center */}
             <div onClick={()=>navigate('/Help')} className='flex items-center gap-1 border border-gray-400  px-3 py-2 rounded'> 
-                <div><TfiHeadphoneAlt className='text-blue-600 font-bold text-xl' /></div>
+                <div><TfiHeadphoneAlt className='text-red-600 font-bold text-xl' /></div>
                 <div className='font-semibold'>Help Center</div>
             </div>
 
@@ -123,7 +123,7 @@ const UserAccount = () => {
             <div onClick={()=>navigate('/Profile')} className='flex justify-between items-center mt-5 px-2'>
 
                 <div className='flex items-center gap-2'>
-                <div><FaRegUser className='text-blue-500 font-bold' /></div>
+                <div><FaRegUser className='text-red-600 font-bold' /></div>
                 <div className='text-[14px]'>Edit Profile</div>
                 </div>
 
@@ -141,7 +141,7 @@ const UserAccount = () => {
             <div onClick={()=>navigate('/Address')} className='flex justify-between items-center mt-5 px-2'>
 
                 <div className='flex items-center gap-1.5'>
-                <div><IoLocationSharp  className='text-blue-500 font-bold text-[17px]' /></div>
+                <div><IoLocationSharp  className='text-red-600 font-bold text-[17px]' /></div>
                 <div className='text-[14px]'>Saved Address</div>
                 </div>
 
@@ -156,7 +156,7 @@ const UserAccount = () => {
             <div onClick={()=>navigate('/Language')} className='flex justify-between items-center mt-5 px-2'>
 
                 <div className='flex items-center gap-1.5'>
-                <div><HiOutlineLanguage  className='text-blue-500 font-bold text-[17px]' /></div>
+                <div><HiOutlineLanguage  className='text-red-600 font-bold text-[17px]' /></div>
                 <div className='text-[14px]'>Select Language</div>
                 </div>
 
@@ -171,7 +171,7 @@ const UserAccount = () => {
             <div onClick={()=>navigate('/Privacy')} className='flex justify-between items-center mt-5 px-2'>
 
                 <div className='flex items-center gap-1.5'>
-                <div><FaUnlockAlt   className='text-blue-500 font-bold text-[17px]' /></div>
+                <div><FaUnlockAlt   className='text-red-600 font-bold text-[17px]' /></div>
                 <div className='text-[14px]'>Privacy Center</div>
                 </div>
 
@@ -194,7 +194,7 @@ const UserAccount = () => {
             <div onClick={()=>navigate('/Review')} className='flex justify-between items-center mt-5 px-2'>
 
                 <div className='flex items-center gap-2'>
-                <div><FaRegPenToSquare  className='text-blue-500 font-bold' /></div>
+                <div><FaRegPenToSquare  className='text-red-600 font-bold' /></div>
                 <div className='text-[14px]'>Reviews</div>
                 </div>
 
@@ -209,7 +209,7 @@ const UserAccount = () => {
             <div onClick={()=>navigate('/QueAndAns')} className='flex justify-between items-center mt-5 px-2'>
 
                 <div className='flex items-center gap-1.5'>
-                <div><IoChatboxSharp  className='text-blue-500 font-bold text-[17px]' /></div>
+                <div><IoChatboxSharp  className='text-red-600 font-bold text-[17px]' /></div>
                 <div>Questions & Answer</div>
                 </div>
 
@@ -233,7 +233,7 @@ const UserAccount = () => {
             <div onClick={()=>navigate('/Help')} className='flex justify-between items-center mt-5 px-2'>
 
                 <div className='flex items-center gap-1.5'>
-                <div><GrCircleQuestion  className='text-blue-500 font-bold text-[17px]' /></div>
+                <div><GrCircleQuestion  className='text-red-600 font-bold text-[17px]' /></div>
                 <div className='text-[14px]'>Help Center</div>
                 </div>
 
@@ -250,7 +250,7 @@ const UserAccount = () => {
 
         {/* Logout Button */}
         <div className='max-w-[1300px] w-full mx-auto border border-gray-300 py-1 rounded mt-6 flex justify-center'>
-            <button className=' text-blue-800 font-semibold'>Log Out</button>
+            <button className=' text-red-600 font-semibold'>Log Out</button>
         </div>
 
 
