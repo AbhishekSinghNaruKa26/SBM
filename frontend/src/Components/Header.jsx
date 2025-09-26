@@ -50,9 +50,11 @@ const Header = () => {
         >
           <div
             onClick={() => navigate("/")}
+
             className=" p-1 rounded bg-black max-w-[86px] flex justify-center w-full px-1"
           >
             <img className=" h-8 w-18 rounded" src={sbmlogo} alt="" />
+            
           </div>
 
           {/* bars for small devices */}
