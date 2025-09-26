@@ -31,13 +31,13 @@ const LoginRegister = () => {
                 </div>
 
                 {/* Enter Email input */}
-                <div className='border mt-5 rounded'>
-                    <input className='outline-none px-2 py-1' type="email" placeholder='Enter Your Email' />
+                <div className='border mt-5 rounded w-full'>
+                    <input className='outline-none px-2 py-1 w-full' type="email" placeholder='Enter Your Email' />
                 </div>
 
                 {/* Enter Password Input */}
-                <div className='border mt-4 rounded'>
-                    <input className='outline-none px-2 py-1 ' type="password" placeholder='Enter Your Password' />
+                <div className='border mt-4 rounded w-full'>
+                    <input className='outline-none px-2 py-1 w-full ' type="password" placeholder='Enter Your Password' />
                 </div>
 
                 {/* Sign Up Button */}
