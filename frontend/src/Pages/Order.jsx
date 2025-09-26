@@ -21,7 +21,10 @@ function Order() {
           <div className="text-lg text-white font-semibold">My Orders</div>
         </div>
         <div className="px-4">
-          <div className="text-xl border border-white px-5  text-white rounded-md">
+          <div
+            className="text-xl border border-white px-5  text-white rounded-md"
+            onClick={() => navigate("/Help")}
+          >
             <button className="">Help</button>
           </div>
         </div>
