@@ -8,18 +8,21 @@ import { RiTwitterXLine } from "react-icons/ri";
 import { SlSocialYoutube } from "react-icons/sl";
 import { FaRegHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import sbmlogo from "../../public/IMAGES/BlendMasla/SMB-LOGO.png";
+import sbmfooter from "../../public/IMAGES/BlendMasla/Footer.webp";
 
 const Footer = () => {
-
   const navigate = useNavigate();
-
 
   return (
     <>
       <div className="w-full mb-4 md:mb-0">
         {/* part -1 bg-image */}
 
-        <div className='bg-[url("Footer.webp")] w-full h-auto min-h-[300px] bg-center bg-cover flex justify-center items-center px-6'>
+        <div
+          className=" w-full h-auto min-h-[300px] bg-center bg-cover flex justify-center items-center px-6"
+          style={{ backgroundImage: `url(${sbmfooter})` }}
+        >
           <div className=" text-white font-bold text-xl w-full max-w-[740px] mx-auto">
             <div className="max-w-[740px] w-full mx-auto text-center mb-6 sm:text-[42px] text-[26px] tracking-wider">
               <h1>Subcribe To Our NewSletter</h1>
@@ -45,20 +48,28 @@ const Footer = () => {
           <div className="w-full max-w-[1266px] mx-auto md:flex md:justify-between md:items-center md:text-[18px] px-6">
             {/* logo */}
             <div
-            onClick={() => navigate("/")}
-            className=" py-1 rounded-full max-w-[74px] w-full  px-1"
-          >
-          <img className=" h-8 w-18 rounded-full" src="SMB-LOGO.png" alt="" />
-          </div>
+              onClick={() => navigate("/")}
+              className=" py-1 rounded-full max-w-[74px] w-full  px-1"
+            >
+              <img className=" h-8 w-18 rounded-full" src={sbmlogo} alt="" />
+            </div>
 
             {/* All List Button */}
             <div className="max-w-[590px] mx-auto w-full mt-4">
               <ul className="columns-2 sm:columns-2 gap-9 lg:flex lg:items-center whitespace-nowrap  font-semibold  leading-10">
-                <li onClick={()=>navigate('/')} className="">Overview</li>
-                <li onClick={()=>navigate('/products')} className="">Products</li>
-                <li onClick={()=>navigate('/')} className=""></li>
-                <li onClick={()=>navigate('/about-us')} className="">About us</li>
-                <li onClick={()=>navigate('/contact-us')} className="">Contact</li>
+                <li onClick={() => navigate("/")} className="">
+                  Overview
+                </li>
+                <li onClick={() => navigate("/products")} className="">
+                  Products
+                </li>
+                <li onClick={() => navigate("/")} className=""></li>
+                <li onClick={() => navigate("/about-us")} className="">
+                  About us
+                </li>
+                <li onClick={() => navigate("/contact-us")} className="">
+                  Contact
+                </li>
               </ul>
             </div>
           </div>
