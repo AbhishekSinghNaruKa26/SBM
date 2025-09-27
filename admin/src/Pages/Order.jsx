@@ -4,7 +4,7 @@ import Details from "../Component/Details";
 import orde from "../Data/adminorder";
 function Order() {
   return (
-    <div>
+    <div className="h-screen overflow-y-auto">
       <OrderHeader />
       <Details orde={orde} />
     </div>

@@ -22,6 +22,7 @@ function App() {
         }>
         </Route>
 
+        <Route path="/orders-admin" element={<Order />} />
 
       </Routes>
 

@@ -16,6 +16,7 @@ import Products from '../Pages/Products';
 import Users from '../Pages/Users';
 import Reviews from '../Pages/Reviews';
 import MyProfile from '../Pages/MyProfile';
+import Order from '../Pages/Order';
 
 
 const Mainn = () => {
@@ -81,7 +82,7 @@ const Mainn = () => {
       {/* 2nd div of all work  */}
       <div className='p-4 mt-20'>
         {selected === 1 && <Dashboard />}
-        {selected === 2 && <Orders />}
+        {selected === 2 && <Order />}
         {selected === 3 && <Products />}
         {selected === 4 && <AddProducts />}
         {selected === 5 && <Users />}
