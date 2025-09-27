@@ -81,6 +81,8 @@ const Header = () => {
             ))}
           </div>
 
+
+
           {/* Search Bar  */}
 
           <div className="hidden md:flex items-center justify-between rounded-lg border border-white px-3 ml-4 min-w-[170px]  max-w-[450px] w-full">
@@ -103,6 +105,7 @@ const Header = () => {
               </span>
               <span className="absolute w-0 h-[2px] left-0 bottom-0 bg-red-700 transition-all duration-500 group-hover:w-full"></span>
             </div>
+
 
             <div
               onClick={() => navigate("/WishList")}
@@ -133,6 +136,7 @@ const Header = () => {
         </div>
 
         {/* If Bars Clicked */}
+
         {open && (
           <>
             <div className="top-0 left-0  fixed p-4 z-50 text-white  h-screen w-full max-w-[380px] bg-black">
@@ -151,6 +155,7 @@ const Header = () => {
                 </div>
 
                 {/* x Button */}
+
                 <div
                   onClick={() => setOpen(!open)}
                   className="text-2xl  text-red-500 "
@@ -160,6 +165,7 @@ const Header = () => {
               </div>
 
               {/* Button List */}
+
               <div className="font-bold tracking-wider mt-8">
                 {lists.map((item) => (
                   <Link to={item.path}>
@@ -175,6 +181,7 @@ const Header = () => {
               </div>
 
               {/* Contact Details */}
+              
               <div className="mt-5">
                 <div className="flex items-center tracking-wider">
                   <BiPhoneCall /> <span>+91-7413-94-0716</span>
