@@ -8,6 +8,7 @@ import { LuHeart } from "react-icons/lu";
 import { IoSearchSharp } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 
+
 const Header = () => {
   const [open, setOpen] = useState(false);
   const lists = [
@@ -35,9 +36,12 @@ const Header = () => {
     };
   }, []);
 
+
   return (
     <>
+
       {/* Header For Small Devices */}
+
       <header
         className={`fixed top-0 left-0 w-full z-50  py-3   transition-colors duration-300 ${
           isScrolled ? "bg-black text-white" : "bg-black/20"
@@ -55,6 +59,7 @@ const Header = () => {
           </div>
 
           {/* bars for small devices */}
+          
           <div
             onClick={() => setOpen(!open)}
             className="md:hidden font-extrabold"
