@@ -1,5 +1,6 @@
 import {BrowserRouter as Router , Routes, Route} from 'react-router-dom';
 import Header from './Component/Header';
+import Mainn from './Component/Mainn';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
         <Route path='/' element={
           <>
           <Header/>
+          <Mainn/>
           </>
         }>
         </Route>
@@ -21,7 +23,7 @@ function App() {
       </Routes>
 
     </Router>
-     <div className="bg-orange-500">Jay Shree Ram</div>
+
     </>
   )
 }
