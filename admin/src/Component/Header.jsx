@@ -32,7 +32,7 @@ const Header = () => {
     <>
 
     {/* Header */}
-    <div className="p-3 py-4 md:p-4 bg-red-500 text-white flex justify-between items-center">
+    <div className="p-3 py-4 md:p-4 bg-red-500 text-white flex justify-between items-center border-b-2 fixed top-0 w-full">
 
       {/* Logo */}
       <div className="flex items-center gap-3 font-semibold bg-black p-1 rounded"><img className="max-w-[70px]" src="SMB-LOGO.png" alt="" /></div>
