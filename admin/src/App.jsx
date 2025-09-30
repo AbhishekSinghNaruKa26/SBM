@@ -1,12 +1,35 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./Component/Header";
+
+import {BrowserRouter as Router , Routes, Route} from 'react-router-dom';
+import Header from './Component/Header';
+import Mainn from './Component/Mainn';
+
 import Order from "./Pages/Order";
 import Addproductss from "./Pages/Addproductss";
 import Allproducts from "./Pages/Allproducts";
 
+
 function App() {
   return (
     <>
+
+    <Router>
+
+      <Routes>
+
+        <Route path='/' element={
+          <>
+          <Header/>
+          <Mainn/>
+          </>
+        }>
+        </Route>
+
+
+      </Routes>
+
+    </Router>
+
+
       <Router>
         <Routes>
           <Route
@@ -22,6 +45,7 @@ function App() {
           <Route path="/admin/allproducts" element={<Allproducts />}></Route>
         </Routes>
       </Router>
+
     </>
   );
 }
