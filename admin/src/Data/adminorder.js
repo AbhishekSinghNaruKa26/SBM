@@ -9,10 +9,10 @@ const ordersAdmin = [
   },
   {
     id: "#2",
-    name: "Abhishek Singh",
-    address: "1-B-52 Kudi Bhagtasni Housing Board ,Jodhpur,Rajasthan,342005",
-    d: "25 sep 2025",
-    price: "₹ 1099",
+    name: "Amar Singh",
+    address: "1-B-152 Kudi Bhagtasni Housing Board ,Jodhpur,Rajasthan,342005",
+    d: "20 sep 2025",
+    price: "₹ 599",
     status: "pending",
   },
   {
