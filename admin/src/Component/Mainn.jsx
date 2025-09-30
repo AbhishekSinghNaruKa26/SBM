@@ -43,7 +43,7 @@ const Mainn = ({selected,setSelected}) => {
     <div className='max-w-[1400px] w-full   gap-6  scroll-y-auto'>
 
       {/* 1st div of info and button */}
-      <div className='hidden md:block  p-3 max-h-[1650px] h-full  bg-red-500 text-white mt-16 w-[350px] fixed left-0 top-0 overflow-hidden'>
+      <div className='hidden md:block  p-3 max-h-[2150px] h-full  bg-red-500 text-white mt-16 w-[350px] fixed left-0 top-0 overflow-hidden'>
 
         {/* Profile Details */}
       <div className="mt-8 flex rounded-2xl items-center gap-3 py-3 shadow-2xl ">
