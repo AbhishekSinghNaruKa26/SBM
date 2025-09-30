@@ -19,9 +19,10 @@ import MyProfile from '../Pages/MyProfile';
 import Order from '../Pages/Order';
 
 
-const Mainn = () => {
 
-  const [selected , setSelected] = useState(null);
+const Mainn = ({selected,setSelected}) => {
+
+
 
  const allButtons = [
     {id:1, icon:<HiOutlineChartBar/> , name:"Dashboard" },
@@ -39,10 +40,10 @@ const Mainn = () => {
   return (
     <>
 
-    <div className='md:grid grid-cols-[330px_1fr] gap-6 h-screen scroll-y-auto'>
+    <div className='max-w-[1400px] w-full   gap-6  scroll-y-auto'>
 
       {/* 1st div of info and button */}
-      <div className='hidden md:block w-full p-3 bg-red-500 text-white mt-16 max-w-[330px] min-w-[250px]'>
+      <div className='hidden md:block  p-3 max-h-[1650px] h-full  bg-red-500 text-white mt-16 w-[350px] fixed left-0 top-0 overflow-hidden'>
 
         {/* Profile Details */}
       <div className="mt-8 flex rounded-2xl items-center gap-3 py-3 shadow-2xl ">
@@ -64,8 +65,9 @@ const Mainn = () => {
       <div className="p-2 mt-10 space-y-7 font-semibold">
 
         {allButtons.map((item , index)=>(
-        <div onClick={()=>setSelected(item.id)} key={index} className={`flex items-center gap-2 rounded p-2 text-xl ${selected===item.id ? "bg-gray-200 text-red-600" :  ""}`}>
-
+        <div key={index} onClick={() => {console.log("Clicked:", item.name); setSelected(item.name); }} className={`flex items-center gap-2 rounded p-2 text-xl ${selected===item.name ? "bg-gray-200 text-red-600" :  ""}`}>
+          
+          
         <div>{item.icon}</div>
         <div>{item.name}</div>
 
@@ -80,14 +82,14 @@ const Mainn = () => {
       </div>
 
       {/* 2nd div of all work  */}
-      <div className='p-4 mt-20'>
-        {selected === 1 && <Dashboard />}
-        {selected === 2 && <Order />}
-        {selected === 3 && <Products />}
-        {selected === 4 && <AddProducts />}
-        {selected === 5 && <Users />}
-        {selected === 6 && <Reviews />}
-        {selected === 7 && <MyProfile />}      
+      <div className='p-4 mt-20 md:ml-[350px]   w-full'>
+        {selected === "Dashboard" && <Dashboard />}
+        {selected === "Orders" && <Order />}
+        {selected === "Products" && <Products />}
+        {selected === "Add Products" && <AddProducts />}
+        {selected === "Users" && <Users />}
+        {selected === "Reviews"&& <Reviews />}
+        {selected === "My Profile" && <MyProfile />}      
       </div>
 
 

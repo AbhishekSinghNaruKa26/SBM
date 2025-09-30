@@ -11,10 +11,11 @@ import { CgProfile } from "react-icons/cg";
 import { MdOutlineLogout } from "react-icons/md";
 
 
-const Header = () => {
+
+const Header = ({selected, setSelected}) => {
 
   const [open , setOpen] = useState(false);
-  const [selected , setSelected] = useState(null);
+
 
  const allButtons = [
     {id:1, icon:<HiOutlineChartBar/> , name:"Dashboard" },
@@ -45,7 +46,7 @@ const Header = () => {
     {/* If bars clicked */}
     {open &&
     <>
-    <div className="bg-red-500 max-w-[350px] w-full h-screen absolute top-0 left-0 text-white p-3">
+    <div className="bg-red-500 max-w-[350px] h-screen fixed w-full  top-0 left-0 text-white p-3">
 
       {/* Logo and Cross */}
       <div className="flex justify-between border-b  pb-3">
@@ -78,7 +79,7 @@ const Header = () => {
       <div className="p-2 mt-10 space-y-7 font-semibold">
 
         {allButtons.map((item , index)=>(
-        <div onClick={()=>setSelected(item.id)} key={index} className={`flex items-center gap-2 rounded p-2 text-xl ${selected===item.id ? "bg-gray-200 text-red-600" :  ""}`}>
+        <div onClick={()=>setSelected(item.name)} key={index} className={`flex items-center gap-2 rounded p-2 text-xl ${selected===item.name ? "bg-gray-200 text-red-600" :  ""}`}>
 
         <div>{item.icon}</div>
         <div>{item.name}</div>

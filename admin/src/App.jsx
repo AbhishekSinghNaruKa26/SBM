@@ -4,9 +4,13 @@ import Header from './Component/Header';
 import Mainn from './Component/Mainn';
 
 import Order from "./Pages/Order";
+import { useState } from 'react';
 
 
 function App() {
+
+  const [selected , setSelected] = useState("Dashboard");
+
   return (
     <>
 
@@ -16,8 +20,8 @@ function App() {
 
         <Route path='/' element={
           <>
-          <Header/>
-          <Mainn/>
+          <Header  selected={selected} setSelected={setSelected}/>
+          <Mainn  selected={selected} setSelected={setSelected}/>
           </>
         }>
         </Route>
