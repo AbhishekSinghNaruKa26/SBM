@@ -1,11 +1,8 @@
 import {BrowserRouter as Router , Routes, Route} from 'react-router-dom';
 import Header from './Component/Header';
 import Mainn from './Component/Mainn';
-
 import Order from "./Pages/Order";
-
 import { useState } from 'react';
-
 import Addproductss from "./Pages/Addproductss";
 import Allproducts from "./Pages/Allproducts";
 
