@@ -11,15 +11,15 @@ function Details({ orde }) {
   return (
     <div className="max-w-[1800px] px-2 sm:px-4 w-full mx-auto mt-4 flex flex-col gap-4 overflow-x-auto">
       {/* Header */}
-      <div className="min-w-[700px] text-white font-semibold text-[12px] sm:text-[16px] md:text-[18px] lg:text-[20px] w-full px-3 sm:px-10 py-3 sm:py-4 bg-red-500 rounded-md shadow-md flex justify-between items-center">
+      <div className="min-w-[800px]  text-white font-semibold text-[12px] sm:text-[16px] md:text-[18px] lg:text-[20px] w-full px-3 sm:px-10 py-3 sm:py-4 bg-red-500 rounded-md shadow-md flex justify-between items-center">
         <div className="flex gap-6 sm:gap-20 items-center">
           <span>ID</span>
           <span>Name</span>
         </div>
-        <div className="w-[150px] sm:w-[500px] truncate">
+        <div className="w-[150px] md:w-[500px] truncate">
           <span>Address</span>
         </div>
-        <div className="flex gap-4 sm:gap-20 items-center">
+        <div className="flex gap-10 md:gap-30 items-center">
           <span>Date</span>
           <span>Price</span>
           <span>Status</span>
@@ -31,18 +31,18 @@ function Details({ orde }) {
       {orde.map((item, i) => (
         <div
           key={i}
-          className="min-w-[700px] w-full border-[2px] border-gray-400 rounded-md hover:shadow-md"
+          className="min-w-[800px] w-full border-[2px] border-gray-400 rounded-md hover:shadow-md"
         >
           {/* Row Content */}
-          <div className="text-black hover:text-white font-semibold text-[11px] sm:text-[14px] md:text-[15px] px-3 sm:px-9 py-3 sm:py-4 hover:bg-red-300 flex justify-between items-center">
+          <div className="text-black hover:text-white font-semibold text-[11px] sm:text-[14px] md:text-[15px] px-3 sm:px-9 py-3 sm:py-4 hover:bg-gray-200 flex justify-between items-center">
             <div className="flex gap-6 sm:gap-20 items-center">
               <span>{item.id}</span>
               <span>{item.name}</span>
             </div>
-            <div className="w-[150px] sm:w-[500px] truncate">
+            <div className="w-[150px] md:w-[500px] truncate">
               <span>{item.address}</span>
             </div>
-            <div className="flex gap-4 sm:gap-20 items-center">
+            <div className="flex gap-8 md:gap-29 items-center">
               <span>{item.d}</span>
               <span>{item.price}</span>
               <span>{item.status}</span>

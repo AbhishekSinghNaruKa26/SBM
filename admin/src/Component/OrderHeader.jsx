@@ -11,7 +11,7 @@ function OrderHeader() {
   const [fromDate, setFromDate] = useState(new Date());
   const [toDate, setToDate] = useState(new Date());
   return (
-    <div className="max-w-[1800px] w-full mx-auto px-4 flex flex-col gap-5">
+    <div className="max-w-[1800px] w-full mx-auto px-2 sm:px-4 flex flex-col gap-5">
       {/* Header */}
       <div className="w-full mx-auto flex items-center justify-between">
         <div className="flex flex-col gap-1">
@@ -30,27 +30,27 @@ function OrderHeader() {
       </div>
 
       {/* Tabs */}
-      <div className="w-full mx-auto flex flex-col sm:flex-row sm:justify-between items-center gap-4">
+      <div className="w-full mx-auto flex flex-col md:flex-row md:justify-between   md:items-center gap-5">
         {/* Tabs */}
-        <div className="flex gap-2 sm:gap-8">
-          <span className="text-[14px] sm:text-[20px] text-gray-400 font-bold hover:text-black hover:border-b-[4px] border-red-500 cursor-pointer">
+        <div className="flex gap-4 sm:gap-5">
+          <span className="text-[14px] md:text-[20px] text-gray-400 font-bold hover:text-black hover:border-b-[4px] border-red-500 cursor-pointer whitespace-nowrap">
             All Orders
           </span>
-          <span className="text-[14px] sm:text-[20px] text-gray-400 font-bold hover:text-black hover:border-b-[4px] border-red-500 cursor-pointer tracking-wider">
+          <span className="text-[14px] md:text-[20px] text-gray-400 font-bold hover:text-black hover:border-b-[4px] border-red-500 cursor-pointer tracking-wider">
             Dispatch
           </span>
-          <span className="text-[14px] sm:text-[20px] text-gray-400 font-bold hover:text-black hover:border-b-[4px] border-red-500 cursor-pointer tracking-wider">
+          <span className="text-[14px] md:text-[20px] text-gray-400 font-bold hover:text-black hover:border-b-[4px] border-red-500 cursor-pointer tracking-wider">
             Pending
           </span>
-          <span className="text-[14px] sm:text-[20px] text-gray-400 font-bold hover:text-black hover:border-b-[4px] border-red-500 cursor-pointer tracking-wider">
+          <span className="text-[14px] md:text-[20px] text-gray-400 font-bold hover:text-black hover:border-b-[4px] border-red-500 cursor-pointer tracking-wider">
             Completed
           </span>
         </div>
 
         {/* Date Pickers */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-5">
           {/* From Date */}
-          <div className="flex items-center gap-2 sm:gap-3 bg-gray-200 px-2 py-2 rounded-md sm:w-[170px]">
+          <div className="flex items-center gap-2 sm:gap-3 bg-gray-200 px-2 py-2 rounded-md w-[130px]">
             <BsCalendar2Date className="text-[20px] sm:text-[28px]" />
             <DatePicker
               selected={fromDate}
@@ -64,7 +64,7 @@ function OrderHeader() {
           <span className="text-[16px] sm:text-[20px]">To</span>
 
           {/* To Date */}
-          <div className="flex items-center gap-2 sm:gap-3 bg-gray-200 px-2 py-2 rounded-md  sm:w-[170px]">
+          <div className="flex items-center gap-2 sm:gap-3 bg-gray-200 px-2 py-2 rounded-md  w-[130px]">
             <BsCalendar2Date className="text-[20px] sm:text-[28px]" />
             <DatePicker
               selected={toDate}
