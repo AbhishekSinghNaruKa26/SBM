@@ -86,6 +86,7 @@ const Dashboard = () => {
 
     <div className='max-w-[1400px] w-full px-6'>
 
+      <div className='text-xl md:text-2xl font-semibold'><h1>Dashboard</h1></div>
         {/* 1 Total Amount  , Total Orders , Total Products , Total Users */}
         <div className='flex-wrap justify-center  flex gap-4'>
 
