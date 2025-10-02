@@ -112,6 +112,7 @@ function App() {
 
           <Route path="/Account" element={
             <>
+            <Header/>
             <UserAccount/>
             <FiexdFooter/>
             </>
