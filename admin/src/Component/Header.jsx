@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { HiBars3 } from "react-icons/hi2";
 import { IoCloseSharp } from "react-icons/io5";
 import { HiOutlineChartBar } from "react-icons/hi2";
@@ -9,10 +8,11 @@ import { HiOutlineUsers } from "react-icons/hi2";
 import { TfiComments } from "react-icons/tfi";
 import { CgProfile } from "react-icons/cg";
 import { MdOutlineLogout } from "react-icons/md";
+import { useState } from "react";
 
 
 
-const Header = ({selected, setSelected}) => {
+const Header = ({selected,setSelected}) => {
 
   const [open , setOpen] = useState(false);
 
@@ -22,10 +22,9 @@ const Header = ({selected, setSelected}) => {
     {id:2, icon:< PiBasket/> , name:"Orders" },
     {id:3, icon:<BsHandbag/> , name:"Products" },
     {id:4, icon:<BsFilePlus/> , name:"Add Products" },
-    {id:5, icon:<HiOutlineUsers/> , name:"Users" },
-    {id:6, icon:<TfiComments/> , name:"Reviews" },
-    {id:7, icon:<CgProfile/> , name:"My Profile" },   
-    {id:8, icon:<MdOutlineLogout/> , name:"Logout" },
+    {id:5, icon:<HiOutlineUsers/> ,name:"Users" },
+    {id:6, icon:<CgProfile/> , name:"My Profile" },   
+    {id:7, icon:<MdOutlineLogout/> , name:"Logout" },
   ]
 
 
@@ -78,7 +77,7 @@ const Header = ({selected, setSelected}) => {
       {/* All Buttons of panel */}
       <div className="p-2 mt-10 space-y-7 font-semibold">
 
-        {allButtons.map((item , index)=>(
+        {allButtons.map((item,index)=>(
         <div onClick={()=>setSelected(item.name)} key={index} className={`flex items-center gap-2 rounded p-2 text-xl ${selected===item.name ? "bg-gray-200 text-red-600" :  ""}`}>
 
         <div>{item.icon}</div>

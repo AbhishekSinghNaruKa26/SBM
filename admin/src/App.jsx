@@ -7,34 +7,22 @@ import Addproductss from "./Pages/Addproductss";
 import Allproducts from "./Pages/Allproducts";
 import UserDetails from "./Pages/UserDetails";
 
+
 function App() {
   const [selected, setSelected] = useState("Dashboard");
 
   return (
     <>
       <Router>
+
         <Routes>
           <Route
             path="/"
             element={
               <>
-                <Header selected={selected} setSelected={setSelected} />
-                <Mainn selected={selected} setSelected={setSelected} />
-              </>
-            }
-          ></Route>
-
-          <Route path="/orders-admin" element={<Order />} />
-        </Routes>
-      </Router>
-
-      <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Header />
+              
+            <Header selected={selected} setSelected={setSelected}/>
+            <Mainn  selected={selected} setSelected={setSelected}/>
               </>
             }
           ></Route>
@@ -43,7 +31,7 @@ function App() {
           <Route path="/admin/allproducts" element={<Allproducts />} />
           <Route path="/userDetails" element={<UserDetails />} />
         </Routes>
-      </Router>
+        </Router>
     </>
   );
 }
