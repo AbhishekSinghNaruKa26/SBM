@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 function Allproducts() {
   const navigate = useNavigate("");
   return (
-    <div className="p-6">
+    <div className="px-4 shadow-xl">
       <div
         className="flex items-end justify-end "
         onClick={() => navigate("/admin/addproducts")}
@@ -23,13 +23,13 @@ function Allproducts() {
           <thead>
             <tr className="bg-red-400 text-white text-left text-[14px] md:text-[18px] font-bold">
               <td className="py-3 px-4">#</td>
-              <td className="py-3 px-4">Product Name</td>
-              <td className="py-3 px-4">Category</td>
-              <td className="py-3 px-4">Rating</td>
-              <td className="py-3 px-4">Original Price</td>
-              <td className="py-3 px-4">Change Price </td>
-              <td className="py-3 px-4">Image</td>
-              <td className="py-3 px-4">Actions</td>
+              <td className="py-3 px-4 whitespace-nowrap">Product Name</td>
+              <td className="py-3 px-4 whitespace-nowrap">Category</td>
+              <td className="py-3 px-4 whitespace-nowrap">Rating</td>
+              <td className="py-3 px-4 whitespace-nowrap">Original Price</td>
+              <td className="py-3 px-4 whitespace-nowrap">Change Price </td>
+              <td className="py-3 px-4 whitespace-nowrap">Image</td>
+              <td className="py-3 px-4 whitespace-nowrap">Actions</td>
             </tr>
           </thead>
           <tbody>
