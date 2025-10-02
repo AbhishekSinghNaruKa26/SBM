@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState } from 'react';
 import { HiOutlineChartBar } from "react-icons/hi2";
 import { PiBasket } from "react-icons/pi";
 import { BsHandbag } from "react-icons/bs";
@@ -9,14 +8,14 @@ import { TfiComments } from "react-icons/tfi";
 import { CgProfile } from "react-icons/cg";
 import { MdOutlineLogout } from "react-icons/md";
 import Dashboard from '../Pages/Dashboard';
-import Orders from '../Pages/Orders';
-import Product from '../Pages/Products';
 import AddProducts from '../Pages/AddProducts';
-import Products from '../Pages/Products';
 import Users from '../Pages/Users';
 import Reviews from '../Pages/Reviews';
 import MyProfile from '../Pages/MyProfile';
 import Order from '../Pages/Order';
+import Allproducts from '../Pages/Allproducts'
+import Addproductss from '../Pages/Addproductss';
+
 
 
 
@@ -28,11 +27,10 @@ const Mainn = ({selected,setSelected}) => {
     {id:1, icon:<HiOutlineChartBar/> , name:"Dashboard" },
     {id:2, icon:< PiBasket/> , name:"Orders" },
     {id:3, icon:<BsHandbag/> , name:"Products" },
-    {id:4, icon:<BsFilePlus/> , name:"Add Products" },
+    {id:4, icon:<BsFilePlus/> , name:"AddProducts" },
     {id:5, icon:<HiOutlineUsers/> , name:"Users" },
-    {id:6, icon:<TfiComments/> , name:"Reviews" },
-    {id:7, icon:<CgProfile/> , name:"My Profile" },   
-    {id:8, icon:<MdOutlineLogout/> , name:"Logout" },
+    {id:6, icon:<CgProfile/> , name:"My Profile" },   
+    {id:7, icon:<MdOutlineLogout/> , name:"Logout" },
   ]
 
 
@@ -40,7 +38,7 @@ const Mainn = ({selected,setSelected}) => {
   return (
     <>
 
-    <div className='max-w-[1400px] w-full   gap-6  scroll-y-auto'>
+    <div className='max-w-[1500px] w-full   gap-6  scroll-y-auto'>
 
       {/* 1st div of info and button */}
       <div className='hidden md:block  p-3 max-h-[2150px] h-full  bg-red-500 text-white mt-16 w-[350px] fixed left-0 top-0 overflow-hidden'>
@@ -85,8 +83,8 @@ const Mainn = ({selected,setSelected}) => {
       <div className='p-4 mt-20 md:ml-[350px]   w-full'>
         {selected === "Dashboard" && <Dashboard />}
         {selected === "Orders" && <Order />}
-        {selected === "Products" && <Products />}
-        {selected === "Add Products" && <AddProducts />}
+        {selected === "Products" && <Allproducts/>}
+        {selected === "AddProducts" && <Addproductss />}
         {selected === "Users" && <Users />}
         {selected === "Reviews"&& <Reviews />}
         {selected === "My Profile" && <MyProfile />}      

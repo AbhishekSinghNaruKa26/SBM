@@ -35,7 +35,7 @@ function Allproducts() {
           <tbody>
             {allProducts.map((pdata, index) => (
               <tr
-                key={pdata._id}
+                key={index}
                 className="border-t hover:bg-gray-200 hover:shadow-md "
               >
                 <td className="py-3 px-4">{index + 1}</td>

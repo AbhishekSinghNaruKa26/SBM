@@ -8,6 +8,7 @@ import Allproducts from "./Pages/Allproducts";
 
 
 
+
 function App() {
 
   const [selected , setSelected] = useState("Dashboard");
@@ -21,8 +22,10 @@ function App() {
 
         <Route path='/' element={
           <>
-          <Header  selected={selected} setSelected={setSelected}/>
-          <Mainn  selected={selected} setSelected={setSelected}/>
+
+            <Header selected={selected} setSelected={setSelected}/>
+           <Mainn  selected={selected} setSelected={setSelected}/>
+ 
           </>
         }>
         </Route>

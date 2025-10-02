@@ -88,7 +88,7 @@ const Dashboard = () => {
 
       <div className='text-xl md:text-2xl font-semibold'><h1>Dashboard</h1></div>
         {/* 1 Total Amount  , Total Orders , Total Products , Total Users */}
-        <div className='flex-wrap justify-center  flex gap-4'>
+        <div className='flex-wrap justify-center  flex gap-15 mt-6'>
 
             {/* Total Amount */}
             <div className='bg-violet-500 text-white md:max-w-[200px] w-full px-4 md:py-6 py-2 w rounded-md '>
@@ -170,7 +170,7 @@ const Dashboard = () => {
                   <td className='py-3'>{order.id}</td>
                   <td className=' '>{order.product}</td>
                   <td className=' '>{order.customer}</td>
-                  <td className={`${order.status==="Delivered" ? "bg-green-600 text-white" :"bg-amber-500"} w-fit rounded px-1`}>{order.status}</td>
+                  <td className={`${order.status==="Delivered" ? "bg-green-600 text-white" :"bg-amber-500"} w-fit rounded px-1 `}>{order.status}</td>
                 </tr>
               ))}
             </tbody>
