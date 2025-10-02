@@ -14,51 +14,15 @@ function App() {
   return (
     <>
       <Router>
+
         <Routes>
           <Route
             path="/"
             element={
               <>
-                <Header selected={selected} setSelected={setSelected} />
-                <Mainn selected={selected} setSelected={setSelected} />
-              </>
-            }
-          ></Route>
-
-<<<<<<< HEAD
-    <Router>
-
-      <Routes>
-
-        <Route path='/' element={
-          <>
-
+              
             <Header selected={selected} setSelected={setSelected}/>
-           <Mainn  selected={selected} setSelected={setSelected}/>
- 
-          </>
-        }>
-        </Route>
-
-        <Route path="/orders-admin" element={<Order />} />
-
-      </Routes>
-
-    </Router>
-
-=======
-          <Route path="/orders-admin" element={<Order />} />
-        </Routes>
-      </Router>
->>>>>>> feature/admin-code
-
-      <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Header />
+            <Mainn  selected={selected} setSelected={setSelected}/>
               </>
             }
           ></Route>
@@ -67,7 +31,7 @@ function App() {
           <Route path="/admin/allproducts" element={<Allproducts />} />
           <Route path="/userDetails" element={<UserDetails />} />
         </Routes>
-      </Router>
+        </Router>
     </>
   );
 }
