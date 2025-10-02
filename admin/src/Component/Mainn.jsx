@@ -15,6 +15,7 @@ import MyProfile from '../Pages/MyProfile';
 import Order from '../Pages/Order';
 import Allproducts from '../Pages/Allproducts'
 import Addproductss from '../Pages/Addproductss';
+import UserDetails from '../Pages/UserDetails';
 
 
 
@@ -85,7 +86,7 @@ const Mainn = ({selected,setSelected}) => {
         {selected === "Orders" && <Order />}
         {selected === "Products" && <Allproducts/>}
         {selected === "AddProducts" && <Addproductss />}
-        {selected === "Users" && <Users />}
+        {selected === "Users" && <UserDetails />}
         {selected === "Reviews"&& <Reviews />}
         {selected === "My Profile" && <MyProfile />}      
       </div>
