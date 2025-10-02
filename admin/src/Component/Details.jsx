@@ -9,7 +9,7 @@ function Details({ orde }) {
   };
 
   return (
-    <div className="max-w-[1100px] px-2 sm:px-4 w-full mx-auto mt-4 overflow-x-auto">
+    <div className="max-w-[1500px] px-2 sm:px-4 w-full mx-auto mt-6 overflow-x-auto">
       <table className="min-w-[800px] w-full border-collapse">
         <thead>
           <tr className="text-white font-semibold text-[12px] sm:text-[16px] md:text-[18px] lg:text-[20px] bg-red-500 rounded-md shadow-md">
