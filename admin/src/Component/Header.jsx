@@ -80,7 +80,7 @@ const Header = ({ selected, setSelected }) => {
             <div className="p-2 mt-10 space-y-7 font-semibold">
               {allButtons.map((item, index) => (
                 <div
-                  onClick={() => setSelected(item.name)}
+                  onClick={() => {setSelected(item.name); setOpen(!open)}}
                   key={index}
                   className={`flex items-center gap-2 rounded p-2 text-xl ${
                     selected === item.name ? "bg-gray-200 text-red-600" : ""
