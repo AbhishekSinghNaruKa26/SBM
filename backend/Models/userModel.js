@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose, { mongo } from 'mongoose';
 
 
 const userSchema = new mongoose.Schema({
@@ -46,7 +46,9 @@ const userSchema = new mongoose.Schema({
     // Relations
 
     address_deatils:[{type:mongoose.Schema.ObjectId , ref:"address"}],
-    
+
+    cart:{type:mongoose.Schema.ObjectId , ref:"cart"}
+
 
      
 },{timestamps:true})
