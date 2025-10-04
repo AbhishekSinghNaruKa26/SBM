@@ -17,7 +17,6 @@ const userSchema = new mongoose.Schema({
     },
     mobile:{
         type:Number,
-        required:[true, "Provide Phone Number"]
     },
     gender:{
         type:String,
@@ -47,7 +46,11 @@ const userSchema = new mongoose.Schema({
 
     address_deatils:[{type:mongoose.Schema.ObjectId , ref:"address"}],
 
-    cart:{type:mongoose.Schema.ObjectId , ref:"cart"}
+    cart:{type:mongoose.Schema.ObjectId , ref:"cart"},
+
+    order_history:[{type:mongoose.Schema.ObjectId , ref:"order"}],
+
+    
 
 
      
