@@ -6,13 +6,14 @@ import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import helmet from 'helmet'
 import ConnectDB from './Config/ConnectDB.js';
+import router from './Router/router.js';
 
 
 
 const app = express();
 app.use(cors({
     credentials:true,
-    origin:process.env.FRONTEND_URL
+    origin:"*"
 }));
 app.use(express.json());
 app.use(morgan());
@@ -32,7 +33,7 @@ app.get('/',(req ,res)=>{
     })
 })
 
-
+app.use('/sbm',router)
 
 ConnectDB().then(()=>{
     app.listen(PORT , ()=>{

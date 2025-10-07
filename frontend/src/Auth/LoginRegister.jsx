@@ -1,9 +1,165 @@
-import React, { useState } from 'react'
+import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
+import React, { useEffect, useRef, useState } from 'react'
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+import { auth } from '../Firebase/Setup';
+import {useNavigate} from 'react-router-dom';
+import axios from 'axios';
+
 
 
 const LoginRegister = () => {
 
-    const [signIn , setSignIn]= useState(true)
+     // State variables
+    const [useMobile, setUseMobile] = useState(true);
+    const [phone, setPhone] = useState("");
+    const [confirmation, setConfirmation] = useState(null);
+    const[otp,setOtp]=useState("");
+    const[resendTimer , setResendTimer] = useState(0);
+    const[email , setEmail] = useState("");
+    const[emailOtpSent , setEmailOtpSent] = useState(false);
+
+
+    // 1. Use a ref to store the persistent RecaptchaVerifier instance
+    const recaptchaVerifierRef = useRef(null);
+    const navigate = useNavigate();
+
+    // timer for resend button
+
+    useEffect(()=>{
+        let timerId;
+        if(resendTimer >0){
+            timerId = setInterval(() => {
+                setResendTimer(prevTime => prevTime - 1);
+            }, 1000);
+        }
+
+        return()=>clearInterval(timerId);
+    },[resendTimer])
+
+    // for captcha verifier
+    useEffect(() => {
+        if (auth) {
+            recaptchaVerifierRef.current = new RecaptchaVerifier(auth, "recaptcha-container", {
+                size: "invisible",
+            });
+        }
+    }, [auth]); 
+
+    // --- FUNCTION: SEND OTP ---
+    const sendOtp = async () => {
+
+        if(resendTimer > 0) return;
+
+        // Check if the verifier has been initialized
+        const recaptcha = recaptchaVerifierRef.current;
+        if (!recaptcha) {
+            console.error("Recaptcha Verifier not initialized.");
+            return;
+        }
+
+        try {
+
+            setResendTimer(30);
+            setConfirmation(null);
+
+            // 3. REUSE the existing verifier instance
+            const confirmationResult = await signInWithPhoneNumber(auth, phone, recaptcha);
+            
+            // Store the confirmation result to use for OTP verification later
+            setConfirmation(confirmationResult);
+            console.log("Confirmation Result:", confirmationResult);
+            
+        } catch (error) {
+            console.error("Error sending OTP:", error);
+            
+            // OPTIONAL: On error, you can reset the reCAPTCHA instance 
+            // to allow for another attempt without refreshing the page.
+            if (recaptcha && recaptcha.clear) {
+                recaptcha.clear();
+            }
+
+            setResendTimer(0);
+        }
+    }
+
+     // --- FUNCTION: phone VERIFY OTP ---
+     const verifyOtp = async () => {
+    if (!confirmation) return console.error("No confirmation result available.");
+
+    let user;
+    try {
+        // Frontend OTP verification
+        const userCredential = await confirmation.confirm(otp);
+        user = userCredential.user;
+        console.log("User verified:", user);
+        setConfirmation(null);
+        setOtp("");
+    } catch (error) {
+        console.error("Error verifying OTP:", error);
+        alert("Invalid or expired OTP. Please try again.");
+        setOtp("");
+        setConfirmation(null);
+        return; // stop further execution
+    }
+
+    try {
+        // Backend save
+        const idToken = await user.getIdToken(true);
+        console.log("ID TOKEN:", idToken);
+
+       const response = await axios.post(
+            "http://localhost:8080/sbm/firebaseSave",
+            { phoneNumber: user.phoneNumber },
+            { headers: { Authorization: `Bearer ${idToken}` } }
+        );
+
+       const savedUser =response.data.user;// naya ya existing user
+       console.log("SavedUser :",savedUser);
+       
+
+        alert("Login successful !");
+        navigate('/');
+    } catch (error) {
+        console.error("Error saving user to DB:", error);
+        alert("User verified but failed to save to DB. Try again later.");
+    }
+    }
+
+    // --- FUNCTION: SEND EMAIL OTP ---
+    const sendEmailOtp = async()=>{
+        try {
+           const response =  await axios.post('http://localhost:8080/sbm/sendotp',
+                {email}
+            )
+            if(response.data.success){
+                setEmailOtpSent(true)
+                alert("Otp Sent Successfully");
+            }
+
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    // --- FUNCTION: VERIFY EMAIL OTP ---
+    const verifyEmailOtp = async()=>{
+        try {
+          const response =  await axios.post('http://localhost:8080/sbm/verifyotp',
+                {email, otp}
+            )
+
+            if(response.data.success){
+                navigate('/')
+            }
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+
+
+
 
   return (
     <>
@@ -11,7 +167,7 @@ const LoginRegister = () => {
 
     <div className='border p-6 max-w-[470px] w-full rounded'>
 
-        {signIn ? (
+        {useMobile ? (
         <div>
             {/* Sign In Form */}
             <div >
@@ -27,44 +183,55 @@ const LoginRegister = () => {
 
                 {/* Heading */}
                 <div className='text-[13px] mt-1'>
-                    <p>Enter Your email and Password</p>
+                    <p>Enter Your phone or email</p>
                 </div>
 
-                {/* Enter Email input */}
-                <div className='border mt-5 rounded w-full'>
-                    <input className='outline-none px-2 py-1 w-full' type="email" placeholder='Enter Your Email' />
+                <div className='' >
+                <PhoneInput 
+                className="w-full"
+                country={"in"}
+                value={phone}
+                onChange={(phone)=>setPhone("+" + phone)}
+                />
                 </div>
 
-                {/* Enter Password Input */}
-                <div className='border mt-4 rounded w-full'>
-                    <input className='outline-none px-2 py-1 w-full ' type="password" placeholder='Enter Your Password' />
-                </div>
-
-                {/* Sign Up Button */}
-                <div className='mt-4 flex justify-center '>
-
-                    <button type='submit' onClick={(e)=>e.preventDefault() }  className='relative group  px-3 w-full py-2 bg-black  text-white rounded'> 
-
-                        <span className='z-50 relative tracking-wider font-semibold'>Login</span>
-
-                        <span className='absolute top-0 left-0 h-full bg-red-700  w-0 transition-all duration-500 group-hover:w-full'></span>
-
-                    </button>    
+                {/* Send otp button */}
+                <div onClick={sendOtp} className={`flex justify-center mt-3 rounded w-full border font-semibold py-1 ${resendTimer >0 ? 'bg-gray-400 text-gray-700' :'bg-red-700 text-white'}`}>
+                    {confirmation && resendTimer > 0 ?(
+                        <button disabled={true}>Resend Otp in {resendTimer}s</button>
+                    ) : resendTimer >0 ?(
+                        <button disabled={true}>Sending Otp...</button>
+                    ) :(
+                        <button>{confirmation ? "Resend Otp" :"Send Otp "}</button>
+                   )
+                }
 
                 </div>
 
-                {/* Forgotten password & dont have account */}
-                <div className='mt-4 sm:flex space-y-2 justify-between' >
-                    <p>Don't have an account 
-                        <button className='relative mx-1.5 text-blue-800 font-semibold group'>
-                            <span type='button' onClick={()=>setSignIn(false)} className='relative'>Sign Up</span>
-                            <span className=' absolute left-0 bottom-0 h-[2px] w-0 transition-all duration-500 bg-blue-800 group-hover:w-full '></span>
-                        </button>
-                    </p>
+                {/* empty div for recpatcha */}
+                <div id='recaptcha-container'> </div>
 
+                {/* Enter Otp Here and verify also */}
+                {confirmation && (
+                    <>
+                    <div className='w-full border mt-4 px-4 py-1'>
+                    <input value={otp} onChange={(e)=>setOtp(e.target.value)} className='w-full outline-none' type="text" placeholder='Enter Otp' />
+                </div>
+
+                {/* Verfiy Otp Button */}
+                <div onClick={verifyOtp} className='flex justify-center mt-3 w-full border py-1 bg-red-500 text-white'>
+                    <button>Verfiy Otp</button>
+                </div>
+                </>
+                )}
+                
+
+                {/* use Email */}
+                <div className='mt-4 flex space-y-2 justify-end' >
+                   
                     <p>
-                        <button className='relative mx-1 text-blue-800 font-semibold group'>
-                            <span className='relative'>Forgotten Password</span>
+                        <button onClick={()=>setUseMobile(!useMobile)} className='relative mx-1 text-blue-800 font-semibold group'>
+                            <span className='relative'>Use Email</span>
                             <span className=' absolute left-0 bottom-0 h-[2px] w-0 transition-all duration-500 bg-blue-800 group-hover:w-full '></span>
                         </button>
                     </p>
@@ -98,9 +265,9 @@ const LoginRegister = () => {
         </div>
 
         ) :(
-            // sign Up
+            // Use Email
         <div>
-             {/* Sign  Up*/}
+             {/* Use Email*/}
 
             <div>
 
@@ -110,60 +277,60 @@ const LoginRegister = () => {
 
                 {/* Sign In */}
                 <div className='mt-4 font-semibold'>
-                    Sign Up
+                    Sign In
                 </div>
 
                 {/* Heading */}
                 <div className='text-[13px] mt-1'>
-                    <p>Enter Your Name , Contact , email and Password</p>
+                    <p>Enter Your Email Id</p>
                 </div>
 
-                {/* Enter Name Input */}
-                <div className='border mt-4 rounded'>
-                    <input className='outline-none px-2 py-1 w-full' type="text" placeholder='Enter Your Full Name' />
-                </div>
-
-                {/* Enter Contact Input */}
-                <div className='border mt-4 rounded'>
-                    <input className='outline-none px-2 py-1 w-full' type="number" placeholder='Enter Your Contact' />
-                </div>
-
+               
                 {/* Enter Email input */}
                 <div className='border mt-5 rounded'>
-                    <input className='outline-none px-2 py-1 w-full' type="email" placeholder='Enter Your Email' />
+                    <input value={email} onChange={(e)=>setEmail(e.target.value)} className='outline-none px-2 py-1 w-full' type="email" placeholder='Enter Your Email' />
+                </div>
+              
+                {/* Send otp button */}
+                <div onClick={sendEmailOtp} className={`flex justify-center mt-3 rounded w-full border font-semibold py-1 ${resendTimer >0 ? 'bg-gray-400 text-gray-700' :'bg-red-700 text-white'}`}>
+                    {confirmation && resendTimer > 0 ?(
+                        <button disabled={true}>Resend Otp in {resendTimer}s</button>
+                    ) : resendTimer >0 ?(
+                        <button disabled={true}>Sending Otp...</button>
+                    ) :(
+                        <button>{confirmation ? "Resend Otp" :"Send Otp "}</button>
+                   )
+                }
+
                 </div>
 
-                {/* Enter Password Input */}
-                <div className='border mt-4 rounded'>
-                    <input className='outline-none px-2 py-1 w-full ' type="password" placeholder='Enter Your Password' />
+                {/* empty div for recpatcha */}
+                <div id='recaptcha-container'> </div>
+
+
+                {/* Enter Otp Here and verify also */}
+                {emailOtpSent && (
+                    <>
+                    <div className='w-full border mt-4 px-4 py-1'>
+                    <input value={otp} onChange={(e)=>setOtp(e.target.value)} className='w-full outline-none' type="text" placeholder='Enter Otp' />
                 </div>
 
-                {/* Enter Confirm Password Input */}
-                <div className='border mt-4 rounded'>
-                    <input className='outline-none px-2 py-1 w-full' type="password" placeholder='Enter Confirm Password' />
+                {/* Verfiy Otp Button */}
+                <div onClick={verifyEmailOtp} className='flex justify-center mt-3 w-full border py-1 bg-red-500 text-white'>
+                    <button>Verfiy Otp</button>
                 </div>
+                </>
+                )}
 
-                {/* Login Button */}
-                <div className='mt-4 flex justify-center '>
-
-                    <button type='submit' onClick={(e)=>e.preventDefault()} className='relative group  px-3 w-full py-2 bg-black  text-white rounded'> 
-
-                        <span className='z-50 relative tracking-wider font-semibold'>Sign Up</span>
-
-                        <span className='absolute top-0 left-0 h-full bg-red-700  w-0 transition-all duration-500 group-hover:w-full'></span>
-
-                    </button>    
-
-                </div>
 
                 {/* Forgotten password & dont have account */}
-                <div className='mt-4 sm:flex space-y-2 justify-between' >
-                    <p>Already have an account 
+                <div className='mt-4 flex space-y-2 justify-end' >
+     
                         <button className='relative mx-1.5 text-blue-800 font-semibold group'>
-                            <span type='button' onClick={()=>setSignIn(true)} className='relative'>Sign In</span>
+                            <span type='button' onClick={()=>setUseMobile(!useMobile)} className='relative'>Use Mobile</span>
                             <span className=' absolute left-0 bottom-0 h-[2px] w-0 transition-all duration-500 bg-blue-800 group-hover:w-full '></span>
                         </button>
-                    </p>
+
                 </div>
 
                 {/* Or */}

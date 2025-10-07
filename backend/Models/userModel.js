@@ -4,19 +4,22 @@ import mongoose, { mongo } from 'mongoose';
 const userSchema = new mongoose.Schema({
     userName:{
         type:String,
-        required:[true, "Provide UserName"]
+        required:[false, "Provide UserName"]
     },
     email:{
         type:String,
-        required:[true,"Provide Email"],
-        unique:true
+        required:[false,"Provide Email"],
+        unique:true,
+        sparse: true
     },
     password:{
         type:String,
-        required:[true, "Provide Password"]
+        required:[false, "Provide Password"]
     },
-    mobile:{
-        type:Number,
+    phoneNumber: {
+    type: String,
+    unique: true,
+    sparse: true
     },
     gender:{
         type:String,
@@ -41,6 +44,12 @@ const userSchema = new mongoose.Schema({
         enum:["user","admin"],
         default:"user"
     },
+    uid: {
+    type: String,
+    unique: true,
+    sparse: true // sparse allows multiple nulls
+    },
+
 
     // Relations
 
