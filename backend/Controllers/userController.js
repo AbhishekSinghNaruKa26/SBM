@@ -1,5 +1,7 @@
 import sendEmail from "../Config/sendEmail.js";
 import userModel from "../Models/userModel.js";
+import { genrateAccessToken } from "../utils/genrateAccesstoken.js";
+import { genrateRefreshToken } from "../utils/genrateRefreshToken.js";
 import { sendEmailOtp } from "../utils/sendEmailTemplate.js";
 
 
@@ -7,10 +9,12 @@ export const saveFirebaseUserController = async(req,res)=>{
     try {
 
         const {phoneNumber} = req.body;
-        const {uid} = req.firebaseUser;
+        const {uid} = req.user;
 
 
-console.log("Firebase user:", req.firebaseUser);
+console.log("Firebase user:", req.user);
+console.log("UID",uid);
+
 
 
         if(!phoneNumber){
@@ -21,27 +25,30 @@ console.log("Firebase user:", req.firebaseUser);
             })
         }
 
-        const existingUser = await userModel.findOne({uid});
+        let user = await userModel.findOne({uid});
 
-        if(existingUser){
-            return res.status(200).json({
-                message:"user already Resisterd, Logged In Successfully",
-                success:true,
-                error:false,
-                user:existingUser
-
-            })
+        if(!user){
+            user = new userModel({ uid, phoneNumber });
+            await user.save();
         }
 
-        const newUser = new userModel({uid , phoneNumber});
-        const save = await newUser.save();
+        // Generate tokens
+    const accesstoken = genrateAccessToken({ _id: user._id, phoneNumber: user.phoneNumber });
+    const refreshtoken = genrateRefreshToken({ _id: user._id });
 
-        res.status(201).json({
-            message:"user Registered Successfully",
-            error:false,
-            success:true,
-            user:save
-        })
+      // Save refreshToken in DB (optional, for logout/refresh flow)
+    user.refresh_token = refreshtoken;
+    await user.save();
+
+
+         return res.status(200).json({
+      message: user ? "User logged in successfully" : "User registered successfully",
+      success: true,
+      error: false,
+      user,
+      accesstoken,
+      refreshtoken
+    });
 
         
     } catch (error) {
@@ -148,10 +155,21 @@ export const verifyOtpController = async(req,res)=>{
         user.forgot_password_otp= null;
          await user.save();
 
+         //genrate token
+
+         const accesstoken = genrateAccessToken(user);
+         const refreshtoken = genrateRefreshToken(user);
+         console.log("accesstoken :",accesstoken);
+         console.log("refreshtoken :",refreshtoken);
+         
+         
+
          return res.status(200).json({
             message:"OTP Verified Successfully",
             success:true,
             error:false,
+            accesstoken,
+            refreshtoken,
             user
 
          })

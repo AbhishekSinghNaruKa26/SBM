@@ -1,8 +1,13 @@
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
-import { configDotenv } from 'dotenv';
+dotenv.config();
 
 
-export const genrateRefreshToken = (uid)={
-    return jwt.sign({uid},process.env.JWT_REFRESH_SECRET,{expiresIn:"7d"});
+export const genrateRefreshToken = (user)=>{
+    return jwt.sign(
+        { id: user._id },
+        process.env.JWT_REFRESH_SECRET,
+        console.log("refresh:",process.env.JWT_REFRESH_SECRET),
+        { expiresIn: "7d" }
+    )
 }

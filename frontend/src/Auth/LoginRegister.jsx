@@ -18,6 +18,9 @@ const LoginRegister = () => {
     const[resendTimer , setResendTimer] = useState(0);
     const[email , setEmail] = useState("");
     const[emailOtpSent , setEmailOtpSent] = useState(false);
+    const [user , setUser] = useState(null);
+
+
 
 
     // 1. Use a ref to store the persistent RecaptchaVerifier instance
@@ -114,12 +117,17 @@ const LoginRegister = () => {
             { headers: { Authorization: `Bearer ${idToken}` } }
         );
 
-       const savedUser =response.data.user;// naya ya existing user
-       console.log("SavedUser :",savedUser);
-       
+        if (response.data.success) {
+      // ✅ Save tokens in localStorage
+      localStorage.setItem("accessToken", response.data.accesstoken);
+      localStorage.setItem("refreshToken", response.data.refreshtoken);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
 
-        alert("Login successful !");
-        navigate('/');
+      console.log("SavedUser :", response.data.user);
+      alert("Login successful !");
+      navigate('/');
+    }
+
     } catch (error) {
         console.error("Error saving user to DB:", error);
         alert("User verified but failed to save to DB. Try again later.");
@@ -149,15 +157,52 @@ const LoginRegister = () => {
                 {email, otp}
             )
 
-            if(response.data.success){
-                navigate('/')
-            }
+           if (response.data.success) {
+      // ✅ Save token in localStorage
+      localStorage.setItem("accessToken", response.data.accesstoken);
+
+      // (Optional) refresh token agar chahiye
+      localStorage.setItem("refreshToken", response.data.refreshtoken);
+
+      // ✅ User data bhi store kar sakta hai (for quick access)
+      localStorage.setItem("user", JSON.stringify(response.data.user));
+
+      // ✅ Navigate to home or profile
+      navigate('/');
+    }
         } catch (error) {
             console.error(error)
         }
     }
 
+    // useEffect
+    useEffect(()=>{
+        const saveduser = localStorage.getItem("user");
+        console.log("saved User :", saveduser);
 
+        if(saveduser){
+            setUser(JSON.parse(saveduser));
+        }
+        
+    },[])
+
+    // handle logout
+    const hanldeLogout =()=>{
+        localStorage.removeItem('accesstoken');
+        localStorage.removeItem('refreshtoken');
+        localStorage.removeItem('user');
+        setUser(null);
+        window.location.reload();
+    }
+
+    // display name
+    const getDisplayName = ()=>{
+        if(!user) return "User";
+        if(user.name) return user.name;
+        if(user.email) return user.email;
+        if(user.phoneNumber) return user.phoneNumber;
+        return "User";
+    }
 
 
 

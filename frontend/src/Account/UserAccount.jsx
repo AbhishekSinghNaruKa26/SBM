@@ -16,12 +16,37 @@ import { IoChatboxSharp } from "react-icons/io5";
 import { AiTwotoneCopy } from "react-icons/ai";
 import { GrCircleQuestion } from "react-icons/gr";
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 
 
 const UserAccount = () => {
 
     const navigate = useNavigate();
+     const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const savedUser = localStorage.getItem("user");
+    if (savedUser) setUser(JSON.parse(savedUser));
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("user");
+    setUser(null);
+    window.location.reload(); // ya navigate('/')
+  }
+
+  const getDisplayName = () => {
+    if (!user) return "User";
+    if (user.name) return user.name;
+    if (user.email) return user.email;
+    if (user.phoneNumber) return user.phoneNumber;
+    return "User";
+  }
+    
 
   return (
     <>
@@ -32,20 +57,26 @@ const UserAccount = () => {
         <div className='bg-[#f0f5ff] p-5 max-w-[1300px] w-full mx-auto'>
 
             {/* Name and Star */}
-            <div className='flex justify-between items-center'>
-                {/* Name */}
-            <div className='text-md font-semibold'>Login to get details </div>
+            <div className="flex justify-between items-center">
+      {/* Name / Default Text */}
+      <div className="text-md font-semibold">
+        {user ?  getDisplayName() : "Login to get details"}
+      </div>
 
-            {/* Login button*/}
-                <div onClick={()=>navigate('/RegisterLogin')} className=''>
-                    <button className='relative group  rounded-2xl w-30 py-2 hover:text-white text-red-600 border border-red-500 font-semibold'>
-                        <span className='relative z-10'>Login in</span>
-                        <span className='absolute left-0 top-0 rounded-2xl w-0 h-full transition-all bg-red-600 duration-500 group-hover:w-full '></span>     
-                    </button>
-                </div>
-
-
-            </div>
+      {/* Login / Logout button */}
+      <div>
+        {user ? (
+            " "
+        ) : (
+          <div onClick={() => navigate("/RegisterLogin")}>
+            <button className="relative group rounded-2xl w-30 py-2 hover:text-white text-red-600 border border-red-500 font-semibold">
+              <span className="relative z-10">Login in</span>
+              <span className="absolute left-0 top-0 rounded-2xl w-0 h-full transition-all bg-red-600 duration-500 group-hover:w-full"></span>
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
 
             {/* Explore and 1 image */}
             <div className='flex justify-between'> 
@@ -249,7 +280,7 @@ const UserAccount = () => {
         </div>
 
         {/* Logout Button */}
-        <div className='max-w-[1300px] w-full mx-auto border border-gray-300 py-1 rounded mt-6 flex justify-center'>
+        <div onClick={handleLogout} className='max-w-[1300px] w-full mx-auto border border-gray-300 py-1 rounded mt-6 flex justify-center'>
             <button className=' text-red-600 font-semibold'>Log Out</button>
         </div>
 

@@ -1,42 +1,61 @@
 import admin from "../Config/firebaseAdmin.js";
+import jwt from 'jsonwebtoken';
 
-const verifyFirebaseToken = async (req, res, next) => {
-    try {
-        console.log("Authorization header:", req.headers.authorization);
-console.log("Firebase user:", req.firebaseUser);
 
-        // Token from header or body
-        const authHeader = req.headers.authorization;
-        const token = req.body.token || (authHeader && authHeader.startsWith("Bearer ") ? authHeader.split(" ")[1] : null);
-
-        if (!token) {
-            return res.status(400).json({
-                message: "No Token Provided",
-                success: false,
-                error: true
-            });
-        }
-
-        // Verify token
-        const decode = await admin.auth().verifyIdToken(token);
-        if (!decode) {
-            return res.status(401).json({
-                message: "Unauthorized Access",
-                success: false,
-                error: true
-            });
-        }
-
-        req.firebaseUser = decode; // ✅ attach to request
-        next();
-    } catch (error) {
-        console.error("Firebase verify error:", error);
-        return res.status(500).json({
-            message: error.message || error,
-            success: false,
-            error: true
-        });
+ const verifyUserAuth = async (req, res, next) => {
+  try {
+    const authHeader = req.headers.authorization;
+    if (!authHeader) {
+      return res.status(401).json({
+        message: "No token provided",
+        success: false,
+        error: true,
+      });
     }
+
+    const token = authHeader.split(" ")[1];
+    if (!token) {
+      return res.status(401).json({
+        message: "No token provided",
+        success: false,
+        error: true,
+      });
+    }
+
+    // 🔹 Try Firebase Verification
+    try {
+      const decodedFirebase = await admin.auth().verifyIdToken(token);
+      req.user = {
+        uid: decodedFirebase.uid,
+        authType: "firebase",
+        email: decodedFirebase.email || null,
+      };
+      return next();
+    } catch (firebaseErr) {
+      // 🔹 If Firebase fails, try JWT
+      try {
+        const decodedJWT = jwt.verify(token, process.env.JWT_SECRET);
+        req.user = {
+          id: decodedJWT.id,
+          email: decodedJWT.email || null,
+          authType: "jwt",
+        };
+        return next();
+      } catch (jwtErr) {
+        return res.status(401).json({
+          message: "Invalid token",
+          success: false,
+          error: true,
+        });
+      }
+    }
+  } catch (error) {
+    return res.status(500).json({
+      message: error.message || error,
+      success: false,
+      error: true,
+    });
+  }
 };
 
-export default verifyFirebaseToken;
+export default verifyUserAuth;
