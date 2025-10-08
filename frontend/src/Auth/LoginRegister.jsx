@@ -137,7 +137,7 @@ const LoginRegister = () => {
     // --- FUNCTION: SEND EMAIL OTP ---
     const sendEmailOtp = async()=>{
         try {
-           const response =  await axios.post('http://localhost:8080/sbm/sendotp',
+           const response =  await axios.post('http://sbm-qz7p.onrender.com/sbm/sendotp',
                 {email}
             )
             if(response.data.success){
@@ -153,7 +153,7 @@ const LoginRegister = () => {
     // --- FUNCTION: VERIFY EMAIL OTP ---
     const verifyEmailOtp = async()=>{
         try {
-          const response =  await axios.post('http://localhost:8080/sbm/verifyotp',
+          const response =  await axios.post('http://sbm-qz7p.onrender.com/sbm/verifyotp',
                 {email, otp}
             )
 
