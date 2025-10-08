@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { HiBars3 } from "react-icons/hi2";
 import { BiPhoneCall } from "react-icons/bi";
 import { MdOutlineMarkEmailUnread } from "react-icons/md";
@@ -8,13 +8,15 @@ import { LuHeart } from "react-icons/lu";
 import { IoSearchSharp } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import sbmlogo from "../../public/IMAGES/BlendMasla/SMB-LOGO.png";
+import CartContext from "../context/CartContext";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const { count } = useContext(CartContext);
   const lists = [
-    { id: 2, name: "About Us", path: "/about-us" },
-    { id: 3, name: "Products", path: "/products" },
-    { id: 4, name: "Contact Us", path: "/contact-us" },
+    { id: 1, name: "About Us", path: "/about-us" },
+    { id: 2, name: "Products", path: "/products" },
+    { id: 3, name: "Contact Us", path: "/contact-us" },
   ];
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -81,8 +83,6 @@ const Header = () => {
             ))}
           </div>
 
-
-
           {/* Search Bar  */}
 
           <div className="hidden md:flex items-center justify-between rounded-lg border border-white px-3 ml-4 min-w-[170px]  max-w-[450px] w-full">
@@ -106,7 +106,6 @@ const Header = () => {
               <span className="absolute w-0 h-[2px] left-0 bottom-0 bg-red-700 transition-all duration-500 group-hover:w-full"></span>
             </div>
 
-
             <div
               onClick={() => navigate("/WishList")}
               className="pb-2 relative group   hover:text-white "
@@ -127,9 +126,11 @@ const Header = () => {
               <span className="relative hover:text-red-700">
                 <GrCart className="" />
               </span>
-              <span className="bg-red-700  absolute bottom-4.5 text-[10px] left-3.5 rounded-full px-1 ">
-                0
-              </span>
+              {count > 0 && (
+                <span className="bg-red-700  absolute bottom-4.5 text-[10px] left-3.5 rounded-full px-1 ">
+                  {count}
+                </span>
+              )}
               <span className="absolute w-0 h-[2px] left-0 bottom-0 bg-red-700 transition-all duration-500 group-hover:w-full"></span>
             </div>
           </div>
@@ -181,7 +182,7 @@ const Header = () => {
               </div>
 
               {/* Contact Details */}
-              
+
               <div className="mt-5">
                 <div className="flex items-center tracking-wider">
                   <BiPhoneCall /> <span>+91-7413-94-0716</span>

@@ -109,6 +109,7 @@ function App() {
 
           {/* Account */}
 
+
           <Route
             path="/Account"
             element={
@@ -118,6 +119,15 @@ function App() {
               </>
             }
           ></Route>
+
+          <Route path="/Account" element={
+            <>
+            <Header/>
+            <UserAccount/>
+            <FiexdFooter/>
+            </>
+          }>
+          </Route>
 
           {/* Profile  */}
           <Route

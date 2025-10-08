@@ -1,0 +1,138 @@
+const ordersAdmin = [
+  {
+    id: "#1",
+    name: "Amar Singh",
+    address: "1-B-152 Kudi Bhagtasni Housing Board ,Jodhpur,Rajasthan,342005",
+    d: "20 sep 2025",
+    price: "₹ 599",
+    status: "pending",
+  },
+  {
+    id: "#2",
+    name: "Amar Singh",
+    address: "1-B-152 Kudi Bhagtasni Housing Board ,Jodhpur,Rajasthan,342005",
+    d: "20 sep 2025",
+    price: "₹ 599",
+    status: "pending",
+  },
+  {
+    id: "#1",
+    name: "Amar Singh",
+    address: "1-B-152 Kudi Bhagtasni Housing Board ,Jodhpur,Rajasthan,342005",
+    d: "20 sep 2025",
+    price: "₹ 599",
+    status: "pending",
+  },
+
+  {
+    id: "#1",
+    name: "Amar Singh",
+    address: "1-B-152 Kudi Bhagtasni Housing Board ,Jodhpur,Rajasthan,342005",
+    d: "20 sep 2025",
+    price: "₹ 599",
+    status: "pending",
+  },
+
+  {
+    id: "#1",
+    name: "Amar Singh",
+    address: "1-B-152 Kudi Bhagtasni Housing Board ,Jodhpur,Rajasthan,342005",
+    d: "20 sep 2025",
+    price: "₹ 599",
+    status: "pending",
+  },
+
+  {
+    id: "#1",
+    name: "Amar Singh",
+    address: "1-B-152 Kudi Bhagtasni Housing Board ,Jodhpur,Rajasthan,342005",
+    d: "20 sep 2025",
+    price: "₹ 599",
+    status: "pending",
+  },
+
+  {
+    id: "#1",
+    name: "Amar Singh",
+    address: "1-B-152 Kudi Bhagtasni Housing Board ,Jodhpur,Rajasthan,342005",
+    d: "20 sep 2025",
+    price: "₹ 599",
+    status: "pending",
+  },
+  {
+    id: "#1",
+    name: "Amar Singh",
+    address: "1-B-152 Kudi Bhagtasni Housing Board ,Jodhpur,Rajasthan,342005",
+    d: "20 sep 2025",
+    price: "₹ 599",
+    status: "pending",
+  },
+  {
+    id: "#1",
+    name: "Amar Singh",
+    address: "1-B-152 Kudi Bhagtasni Housing Board ,Jodhpur,Rajasthan,342005",
+    d: "20 sep 2025",
+    price: "₹ 599",
+    status: "pending",
+  },
+  {
+    id: "#1",
+    name: "Amar Singh",
+    address: "1-B-152 Kudi Bhagtasni Housing Board ,Jodhpur,Rajasthan,342005",
+    d: "20 sep 2025",
+    price: "₹ 599",
+    status: "pending",
+  },
+
+  {
+    id: "#1",
+    name: "Amar Singh",
+    address: "1-B-152 Kudi Bhagtasni Housing Board ,Jodhpur,Rajasthan,342005",
+    d: "20 sep 2025",
+    price: "₹ 599",
+    status: "pending",
+  },
+
+  {
+    id: "#1",
+    name: "Amar Singh",
+    address: "1-B-152 Kudi Bhagtasni Housing Board ,Jodhpur,Rajasthan,342005",
+    d: "20 sep 2025",
+    price: "₹ 599",
+    status: "pending",
+  },
+  {
+    id: "#1",
+    name: "Amar Singh",
+    address: "1-B-152 Kudi Bhagtasni Housing Board ,Jodhpur,Rajasthan,342005",
+    d: "20 sep 2025",
+    price: "₹ 599",
+    status: "pending",
+  },
+
+  {
+    id: "#1",
+    name: "Amar Singh",
+    address: "1-B-152 Kudi Bhagtasni Housing Board ,Jodhpur,Rajasthan,342005",
+    d: "20 sep 2025",
+    price: "₹ 599",
+    status: "pending",
+  },
+  {
+    id: "#1",
+    name: "Amar Singh",
+    address: "1-B-152 Kudi Bhagtasni Housing Board ,Jodhpur,Rajasthan,342005",
+    d: "20 sep 2025",
+    price: "₹ 599",
+    status: "pending",
+  },
+  {
+    id: "#1",
+    name: "Amar Singh",
+    address: "1-B-152 Kudi Bhagtasni Housing Board ,Jodhpur,Rajasthan,342005",
+    d: "20 sep 2025",
+    price: "₹ 599",
+    status: "pending",
+  },
+];
+export default ordersAdmin;

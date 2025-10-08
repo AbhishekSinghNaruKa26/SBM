@@ -26,7 +26,7 @@ const UserAccount = () => {
   return (
     <>
     
-    <div className='p-4 py-6  mb-18'>
+    <div className='p-4 py-6  my-18'>
 
         {/*1. Name and some Styling */}
         <div className='bg-[#f0f5ff] p-5 max-w-[1300px] w-full mx-auto'>

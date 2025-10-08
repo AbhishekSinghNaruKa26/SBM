@@ -1,29 +1,39 @@
-import {BrowserRouter as Router , Routes, Route} from 'react-router-dom';
-import Header from './Component/Header';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./Component/Header";
+import Mainn from "./Component/Mainn";
+import Order from "./Pages/Order";
+import { useState } from "react";
+import Addproductss from "./Pages/Addproductss";
+import Allproducts from "./Pages/Allproducts";
+import UserDetails from "./Pages/UserDetails";
+
 
 function App() {
-
+  const [selected, setSelected] = useState("Dashboard");
 
   return (
     <>
-    <Router>
+      <Router>
 
-      <Routes>
-
-        <Route path='/' element={
-          <>
-          <Header/>
-          </>
-        }>
-        </Route>
-
-
-      </Routes>
-
-    </Router>
-     <div className="bg-orange-500">Jay Shree Ram</div>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+              
+            <Header selected={selected} setSelected={setSelected}/>
+            <Mainn  selected={selected} setSelected={setSelected}/>
+              </>
+            }
+          ></Route>
+          <Route path="/orders-admin" element={<Order />} />
+          <Route path="/admin/addproducts" element={<Addproductss />} />
+          <Route path="/admin/allproducts" element={<Allproducts />} />
+          <Route path="/userDetails" element={<UserDetails />} />
+        </Routes>
+        </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
