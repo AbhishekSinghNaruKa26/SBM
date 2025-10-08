@@ -13,7 +13,7 @@ import router from './Router/router.js';
 const app = express();
 app.use(cors({
     credentials:true,
-    origin:"*"
+    origin:"https://sbm-ten.vercel.app/"
 }));
 app.use(express.json());
 app.use(morgan());
