@@ -13,7 +13,7 @@ const AddToCart = () => {
   const [cart, setCart] = useState([]);
   const [count, setCount] = useState({});
   const [open, setOpen] = useState(true);
-  const { addToCartCount, removeFromCartCount } = useContext(CartContext);
+  const { removeFromCartCount } = useContext(CartContext);
   const navigate = useNavigate();
 
   const handleIncreaseCount = (id) => {
@@ -21,7 +21,6 @@ const AddToCart = () => {
       ...prev,
       [id]: (prev[id] || 1) + 1,
     }));
-    addToCartCount();
   };
 
   const handleDecreaseCount = (id) => {
@@ -29,7 +28,6 @@ const AddToCart = () => {
       ...prev,
       [id]: prev[id] > 1 ? prev[id] - 1 : 1,
     }));
-    removeFromCartCount();
   };
   const tempUserId = "6703bfb63b7bfcddf1f899aa";
   const getcart = async (user = tempUserId) => {
@@ -40,6 +38,7 @@ const AddToCart = () => {
     await axios.delete("http://localhost:8080/sbm/removecart", {
       data: { user: tempUserId, product: product },
     });
+    removeFromCartCount();
     getcart();
   };
   useEffect(() => {
