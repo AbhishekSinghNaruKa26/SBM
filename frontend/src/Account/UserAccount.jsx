@@ -60,7 +60,7 @@ const UserAccount = () => {
             <div className="flex justify-between items-center">
       {/* Name / Default Text */}
       <div className="text-md font-semibold">
-        {user ?  getDisplayName() : "Login to get details"}
+        {user ?      getDisplayName() : "Login to get details"}
       </div>
 
       {/* Login / Logout button */}

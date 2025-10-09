@@ -4,7 +4,6 @@ import mongoose, { mongo } from 'mongoose';
 const userSchema = new mongoose.Schema({
     userName:{
         type:String,
-<<<<<<< HEAD
         required:[false, "Provide UserName"]
     },
     email:{
@@ -20,22 +19,11 @@ const userSchema = new mongoose.Schema({
     phoneNumber: {
     type: String,
     unique: true,
-    sparse: true
-=======
+    sparse: true,
         required:[true, "Provide UserName"]
-    },
-    email:{
-        type:String,
-        required:[true,"Provide Email"],
-        unique:true
-    },
-    password:{
-        type:String,
-        required:[true, "Provide Password"]
     },
     mobile:{
         type:Number,
->>>>>>> allcode
     },
     gender:{
         type:String,
@@ -60,15 +48,14 @@ const userSchema = new mongoose.Schema({
         enum:["user","admin"],
         default:"user"
     },
-<<<<<<< HEAD
+
     uid: {
     type: String,
     unique: true,
     sparse: true // sparse allows multiple nulls
     },
 
-=======
->>>>>>> allcode
+
 
     // Relations
 

@@ -5,6 +5,7 @@ import 'react-phone-input-2/lib/style.css'
 import { auth } from '../Firebase/Setup';
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
+import api from '../../api'
 
 
 
@@ -111,8 +112,7 @@ const LoginRegister = () => {
         const idToken = await user.getIdToken(true);
         console.log("ID TOKEN:", idToken);
 
-       const response = await axios.post(
-            "https://sbm-qz7p.onrender.com/sbm/firebaseSave",
+       const response = await api.post("/sbm/firebaseSave",
             { phoneNumber: user.phoneNumber },
             { headers: { Authorization: `Bearer ${idToken}` } }
         );
@@ -137,7 +137,7 @@ const LoginRegister = () => {
     // --- FUNCTION: SEND EMAIL OTP ---
     const sendEmailOtp = async()=>{
         try {
-           const response =  await axios.post('https://sbm-qz7p.onrender.com/sbm/sendotp',
+           const response =  await api.post('/sbm/sendotp',
                 {email}
             )
             if(response.data.success){
@@ -153,7 +153,7 @@ const LoginRegister = () => {
     // --- FUNCTION: VERIFY EMAIL OTP ---
     const verifyEmailOtp = async()=>{
         try {
-          const response =  await axios.post('http://sbm-qz7p.onrender.com/sbm/verifyotp',
+          const response =  await api.post('/sbm/verifyotp',
                 {email, otp}
             )
 

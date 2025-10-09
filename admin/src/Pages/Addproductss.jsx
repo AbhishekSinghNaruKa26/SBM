@@ -32,7 +32,7 @@ function Addproductss() {
     }
 
     // form submit
-    await axios.post("http://localhost:8080/sbm/addproducts", {
+    await axios.post("https://sbm-qz7p.onrender.com/sbm/addproducts", {
       name,
       company,
       rating,
