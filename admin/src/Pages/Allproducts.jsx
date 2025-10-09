@@ -1,9 +1,37 @@
 import React from "react";
-import allProducts from "../Data/allproducts";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
+import { useEffect } from "react";
+
+
 
 function Allproducts() {
   const navigate = useNavigate("");
+  const [products, setProducts] = useState([]);
+  const getallproduct = async () => {
+    try {
+      const res = await axios.get("http://localhost:8080/sbm/allproducts");
+      setProducts(res.data.data);
+    } catch (err) {
+      console.error("error fetching in all products", err);
+    }
+  };
+  const handleDelete = async (id) => {
+    const confirm = window.confirm("Are You Sure to Delete a Product");
+    if (!confirm) return;
+    try {
+      await axios.delete(`http://localhost:8080/sbm/deleteproducts/${id}`);
+      alert("Product Deleted");
+      getallproduct();
+    } catch (err) {
+      console.err("error fetching Products", err);
+    }
+  };
+  useEffect(() => {
+    getallproduct();
+  }, []);
+
   return (
     <div className="px-4 shadow-xl">
       <div
@@ -33,9 +61,11 @@ function Allproducts() {
             </tr>
           </thead>
           <tbody>
-            {allProducts.map((pdata, index) => (
+
+            {products.map((pdata, index) => (
               <tr
-                key={index}
+                key={pdata._id}
+
                 className="border-t hover:bg-gray-200 hover:shadow-md "
               >
                 <td className="py-3 px-4">{index + 1}</td>
@@ -48,7 +78,11 @@ function Allproducts() {
                   <img src={pdata.img} />
                 </td>
                 <td className="py-3 px-4">
-                  <button className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
+
+                  <button
+                    className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+                    onClick={() => handleDelete(pdata._id)}
+                  >
                     Delete
                   </button>
                 </td>

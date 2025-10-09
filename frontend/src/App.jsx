@@ -26,7 +26,7 @@ import Aboutus from "./Pages/Aboutus";
 import Orders from "./Orders/Orders";
 import Order from "./Pages/Order";
 import ScrollToTop from "./ScrollToTop";
-
+import User from "../../admin/src/Pages/UserDetails";
 
 function App() {
   return (
@@ -35,7 +35,6 @@ function App() {
         <ScrollToTop />
 
         <Routes>
-
           {/* Home */}
           <Route
             path="/"
@@ -110,6 +109,17 @@ function App() {
 
           {/* Account */}
 
+
+          <Route
+            path="/Account"
+            element={
+              <>
+                <UserAccount />
+                <FiexdFooter />
+              </>
+            }
+          ></Route>
+
           <Route path="/Account" element={
             <>
             <Header/>
@@ -128,7 +138,6 @@ function App() {
               </>
             }
           ></Route>
-
 
           {/* Save Address */}
           <Route
@@ -180,20 +189,19 @@ function App() {
             }
           ></Route>
 
+          {/* Help Center */}
+          <Route
+            path="/Help"
+            element={
+              <>
+                <HelpCenter />
+              </>
+            }
+          ></Route>
 
-           {/* Help Center */}
-          <Route path="/Help" element={
-          <>
-          <HelpCenter/>
-          </>
-          }>
-
-          </Route>
-
-
- 
           {/* amar---- */}
-          <Route path="/products"
+          <Route
+            path="/products"
             element={
               <>
                 <Header />
@@ -218,7 +226,8 @@ function App() {
           />
 
           {/* Contact */}
-          <Route path="/contact-us"
+          <Route
+            path="/contact-us"
             element={
               <>
                 <Header />
@@ -246,9 +255,7 @@ function App() {
           <Route path="/products/cart/address" element={<Addresspayment />} />
 
           {/* Order */}
-          <Route path="/orders" element={<Order/>}/>
-
-
+          <Route path="/orders" element={<Order />} />
         </Routes>
       </Router>
     </>

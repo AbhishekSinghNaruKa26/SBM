@@ -1,3 +1,4 @@
+
 import sendEmail from "../Config/sendEmail.js";
 import userModel from "../Models/userModel.js";
 import { genrateAccessToken } from "../utils/genrateAccesstoken.js";
@@ -184,3 +185,6 @@ export const verifyOtpController = async(req,res)=>{
         })
     }
 }
+
+
+

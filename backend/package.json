@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+<<<<<<< HEAD
     "start": "node index.js",
+=======
+>>>>>>> allcode
     "dev": "nodemon index.js"
   },
   "keywords": [],
@@ -18,14 +21,21 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
+<<<<<<< HEAD
     "firebase-admin": "^13.5.0",
+=======
+>>>>>>> allcode
     "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.19.0",
     "morgan": "^1.10.1",
+<<<<<<< HEAD
     "nodemailer": "^7.0.6"
   },
   "devDependencies": {
+=======
+    "nodemailer": "^7.0.6",
+>>>>>>> allcode
     "nodemon": "^3.1.10"
   }
 }
