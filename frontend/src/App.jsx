@@ -26,7 +26,7 @@ import Aboutus from "./Pages/Aboutus";
 import Orders from "./Orders/Orders";
 import Order from "./Pages/Order";
 import ScrollToTop from "./ScrollToTop";
-import User from "../../admin/src/Pages/UserDetails";
+
 
 function App() {
   return (
