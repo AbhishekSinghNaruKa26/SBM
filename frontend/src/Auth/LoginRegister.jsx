@@ -112,7 +112,7 @@ const LoginRegister = () => {
         console.log("ID TOKEN:", idToken);
 
        const response = await axios.post(
-            "http://localhost:8080/sbm/firebaseSave",
+            "https://sbm-qz7p.onrender.com/sbm/firebaseSave",
             { phoneNumber: user.phoneNumber },
             { headers: { Authorization: `Bearer ${idToken}` } }
         );
@@ -137,7 +137,7 @@ const LoginRegister = () => {
     // --- FUNCTION: SEND EMAIL OTP ---
     const sendEmailOtp = async()=>{
         try {
-           const response =  await axios.post('http://sbm-qz7p.onrender.com/sbm/sendotp',
+           const response =  await axios.post('https://sbm-qz7p.onrender.com/sbm/sendotp',
                 {email}
             )
             if(response.data.success){
