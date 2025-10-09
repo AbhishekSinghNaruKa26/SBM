@@ -8,7 +8,6 @@ import AddToCart from "./Cart/AddToCart";
 import WishList from "./wishlist/WishList";
 import Search from "./search/Search";
 import FiexdFooter from "./Footer/FiexdFooter";
-
 //amar---------
 import Product from "./Pages/Product";
 import Productcart from "./Pages/Productcart";

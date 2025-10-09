@@ -186,23 +186,9 @@ const LoginRegister = () => {
         
     },[])
 
-    // handle logout
-    const hanldeLogout =()=>{
-        localStorage.removeItem('accesstoken');
-        localStorage.removeItem('refreshtoken');
-        localStorage.removeItem('user');
-        setUser(null);
-        window.location.reload();
-    }
+    
 
-    // display name
-    const getDisplayName = ()=>{
-        if(!user) return "User";
-        if(user.name) return user.name;
-        if(user.email) return user.email;
-        if(user.phoneNumber) return user.phoneNumber;
-        return "User";
-    }
+   
 
 
 
