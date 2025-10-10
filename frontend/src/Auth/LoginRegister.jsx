@@ -185,9 +185,6 @@ const LoginRegister = () => {
         }
         
     },[])
-
-    
-
    
 
 
@@ -202,7 +199,7 @@ const LoginRegister = () => {
         <div>
             {/* Sign In Form */}
             <div >
-
+                
                 <div className='flex justify-center font-semibold text-2xl'>
                     <h1>SB Masala</h1>
                 </div>
@@ -211,6 +208,7 @@ const LoginRegister = () => {
                 <div className='mt-4 font-semibold'>
                     Sign in
                 </div>
+
 
                 {/* Heading */}
                 <div className='text-[13px] mt-1'>
@@ -225,6 +223,7 @@ const LoginRegister = () => {
                 onChange={(phone)=>setPhone("+" + phone)}
                 />
                 </div>
+
 
                 {/* Send otp button */}
                 <div onClick={sendOtp} className={`flex justify-center mt-3 rounded w-full border font-semibold py-1 ${resendTimer >0 ? 'bg-gray-400 text-gray-700' :'bg-red-700 text-white'}`}>
