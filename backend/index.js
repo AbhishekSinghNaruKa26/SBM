@@ -10,11 +10,23 @@ import router from './Router/router.js';
 
 
 
+
 const app = express();
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://sbm-ten.vercel.app"
+];
 app.use(cors({
-    credentials:true,
-    origin:process.env.FRONTEND_URL
-}))
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      console.log("❌ CORS blocked for origin:", origin);
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
+}));
 app.use(express.json());
 app.use(morgan());
 app.use(cookieParser());
