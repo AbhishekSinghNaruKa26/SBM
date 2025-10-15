@@ -31,11 +31,11 @@ const AddToCart = () => {
   };
   const tempUserId = "6703bfb63b7bfcddf1f899aa";
   const getcart = async (user = tempUserId) => {
-    const res = await axios.get(`http://localhost:8080/sbm/getcart/${user}`);
+    const res = await axios.get(`https://sbm-qz7p.onrender.com/sbm/getcart/${user}`);
     setCart(res.data.cart?.items || []);
   };
   const handleremove = async (product) => {
-    await axios.delete("http://localhost:8080/sbm/removecart", {
+    await axios.delete("https://sbm-qz7p.onrender.com/sbm/removecart", {
       data: { user: tempUserId, product: product },
     });
     removeFromCartCount();

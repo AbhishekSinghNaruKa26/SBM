@@ -10,7 +10,7 @@ function Product() {
   const [products, setProducts] = useState([]);
   const getallproduct = async () => {
     try {
-      const res = await axios.get("http://localhost:8080/sbm/allproducts");
+      const res = await axios.get("https://sbm-qz7p.onrender.com/sbm/allproducts");
       setProducts(res.data.data);
     } catch (err) {
       console.error("error fetching in all products", err);
