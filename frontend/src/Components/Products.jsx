@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import { CategoryContext } from "../context/Categorycontext";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import CartContext from "../context/CartContext";
+import api from '../../api'
+
+
 function Products({ prodc }) {
   const { slectedCategory } = useContext(CategoryContext);
   const { addToCartCount } = useContext(CartContext);
@@ -17,7 +19,7 @@ function Products({ prodc }) {
   const tempUserId = "6703bfb63b7bfcddf1f899aa";
   const handleAddTocart = async (product) => {
     try {
-      await axios.post("http://localhost:8080/sbm/addtocart", {
+      await api.post("/sbm/addtocart", {
         user: tempUserId,
         product: product,
       });
