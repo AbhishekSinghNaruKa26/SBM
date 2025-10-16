@@ -67,7 +67,7 @@ console.log("UID",uid);
 export  const sendEmailOtpController =async(req,res)=>{
     try {
          console.log("📩 Incoming OTP Request Body:", req.body);
-        const {email} = req.body;
+        const {email} =req.body;
         
 
         if(!email){

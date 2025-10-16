@@ -135,10 +135,10 @@ const LoginRegister = () => {
 
     // --- FUNCTION: SEND EMAIL OTP ---
     const sendEmailOtp = async()=>{
+        console.log("BASE_URL 👉", import.meta.env.VITE_API_URL);
+
         try {
-           const response =  await api.post('/sbm/sendotp',
-                {email},{withCredentials:true}
-            )
+           const response =  await api.post('/sbm/sendotp',{email} )
             if(response.data.success){
                 setEmailOtpSent(true)
                 alert("Otp Sent Successfully");
