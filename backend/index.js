@@ -13,20 +13,25 @@ import router from './Router/router.js';
 
 const app = express();
 const allowedOrigins = [
-  "http://localhost:5173",
-  "https://sbm-ten.vercel.app"
+  process.env.FRONTEND_URL_PROD,
+  process.env.FRONTEND_URL_LOCAL
 ];
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      console.log("❌ CORS blocked for origin:", origin);
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // allow requests with no origin (mobile apps, curl, Postman)
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      } else {
+        return callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 app.use(morgan());
 app.use(cookieParser());
@@ -35,6 +40,10 @@ app.use(helmet({
 }));
 
 
+app.use((req, res, next) => {
+  console.log("👉 Incoming request:", req.method, req.url);
+  next();
+});
 
 
 const PORT = process.env.PORT || 8080;

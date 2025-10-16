@@ -1,8 +1,7 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import axios from "axios";
 import { useEffect } from "react";
+import api from '../../api';
 
 
 
@@ -11,7 +10,7 @@ function Allproducts() {
   const [products, setProducts] = useState([]);
   const getallproduct = async () => {
     try {
-      const res = await axios.get("https://sbm-qz7p.onrender.com/sbm/allproducts");
+      const res = await api.get("/sbm/allproducts");
       setProducts(res.data.data);
     } catch (err) {
       console.error("error fetching in all products", err);
@@ -21,7 +20,7 @@ function Allproducts() {
     const confirm = window.confirm("Are You Sure to Delete a Product");
     if (!confirm) return;
     try {
-      await axios.delete(`https://sbm-qz7p.onrender.com/sbm/deleteproducts/${id}`);
+      await api.delete(`https://sbm-qz7p.onrender.com/sbm/deleteproducts/${id}`);
       alert("Product Deleted");
       getallproduct();
     } catch (err) {

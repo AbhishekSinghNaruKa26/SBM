@@ -64,7 +64,7 @@ console.log("UID",uid);
 
 // email sendotp controller 
 
-export  const sendEmailOtpController =async (req,res)=>{
+export  const sendEmailOtpController =async(req,res)=>{
     try {
          console.log("📩 Incoming OTP Request Body:", req.body);
         const {email} = req.body;
@@ -104,6 +104,7 @@ export  const sendEmailOtpController =async (req,res)=>{
 
 
     } catch (error) {
+        console.error("Error",error);
         return res.status(500).json({
             message:error.message || error,
             success:false,

@@ -1,10 +1,9 @@
 import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import { auth } from '../Firebase/Setup';
 import {useNavigate} from 'react-router-dom';
-import axios from 'axios';
 import api from '../../api'
 
 
@@ -138,7 +137,7 @@ const LoginRegister = () => {
     const sendEmailOtp = async()=>{
         try {
            const response =  await api.post('/sbm/sendotp',
-                {email}
+                {email},{withCredentials:true}
             )
             if(response.data.success){
                 setEmailOtpSent(true)

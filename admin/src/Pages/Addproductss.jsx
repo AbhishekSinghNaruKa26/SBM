@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import axios from "axios";
+import api from "../../api";
 
 
 
@@ -32,7 +32,7 @@ function Addproductss() {
     }
 
     // form submit
-    await axios.post("https://sbm-qz7p.onrender.com/sbm/addproducts", {
+    await api.post("/sbm/addproducts", {
       name,
       company,
       rating,
