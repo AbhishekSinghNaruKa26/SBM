@@ -1,7 +1,5 @@
 import mongoose, { mongo } from "mongoose";
 
-
-
 const productSchema = new mongoose.Schema(
   {
     name: {
@@ -13,10 +11,18 @@ const productSchema = new mongoose.Schema(
       type: String,
       require: true,
     },
-    // description: {
-    //   type: String,
-    //   required: [true, "Please Provide The Product Description "],
-    // },
+    description: {
+      type: String,
+      required: [true, "Please Provide The Product Description "],
+    },
+    vendor: {
+      type: String,
+      required: [true, "Please Provide The Product Description "],
+    },
+    tags: {
+      type: String,
+      required: [true, "Please Provide The Product Description "],
+    },
     rating: {
       type: String,
       require: true,
@@ -51,4 +57,3 @@ const productSchema = new mongoose.Schema(
 
 const productModel = mongoose.model("product", productSchema);
 export default productModel;
-

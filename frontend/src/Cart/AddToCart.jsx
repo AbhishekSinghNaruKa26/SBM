@@ -5,9 +5,9 @@ import { IoMdArrowDropup } from "react-icons/io";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { useEffect } from "react";
 import CartContext from "../context/CartContext";
+import api from "../../api";
 
 const AddToCart = () => {
   const [cart, setCart] = useState([]);
@@ -28,14 +28,15 @@ const AddToCart = () => {
       ...prev,
       [id]: prev[id] > 1 ? prev[id] - 1 : 1,
     }));
+    removeFromCartCount();
   };
   const tempUserId = "6703bfb63b7bfcddf1f899aa";
   const getcart = async (user = tempUserId) => {
-    const res = await axios.get(`https://sbm-qz7p.onrender.com/sbm/getcart/${user}`);
+    const res = await api.get(`/sbm/getcart/${user}`);
     setCart(res.data.cart?.items || []);
   };
   const handleremove = async (product) => {
-    await axios.delete("https://sbm-qz7p.onrender.com/sbm/removecart", {
+    await api.delete("/sbm/removecart", {
       data: { user: tempUserId, product: product },
     });
     removeFromCartCount();
