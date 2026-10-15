@@ -16,6 +16,7 @@ import Order from '../Pages/Order';
 import Allproducts from '../Pages/Allproducts'
 import Addproductss from '../Pages/Addproductss';
 import UserDetails from '../Pages/UserDetails';
+import Logout from '../Pages/Logout';
 
 
 
@@ -61,7 +62,7 @@ const Mainn = ({selected,setSelected}) => {
       </div>
 
       {/* All Buttons of panel */}
-      <div className="p-2 mt-10 space-y-7 font-semibold">
+      <div className="p-2 mt-10 space-y-7 font-semibold z-500">
 
         {allButtons.map((item , index)=>(
         <div key={index} onClick={() => {console.log("Clicked:", item.name); setSelected(item.name); }} className={`flex items-center gap-2 rounded p-2 text-xl ${selected===item.name ? "bg-gray-200 text-red-600" :  ""}`}>
@@ -88,7 +89,9 @@ const Mainn = ({selected,setSelected}) => {
         {selected === "AddProducts" && <Addproductss />}
         {selected === "Users" && <UserDetails />}
         {selected === "Reviews"&& <Reviews />}
-        {selected === "My Profile" && <MyProfile />}      
+        {selected === "My Profile" && <MyProfile />}
+        {selected ==="Logout" && <Logout/>}
+              
       </div>
 
 

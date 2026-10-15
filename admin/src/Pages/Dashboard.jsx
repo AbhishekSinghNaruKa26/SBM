@@ -116,33 +116,33 @@ const Dashboard = () => {
 
         </div>
 
-        <div className='mt-15 font-semibold text-xl md:text-2xl'><h1 className=''>SBM Data :-</h1></div>
+        <div className='mt-15 font-semibold text-xl md:text-2xl'><h1 className=''>SBM Data</h1></div>
 
         {/* All Charts And Graphs Work */}
 
-        <div className='grid grid-cols-1 md:grid-cols-[1fr_430px] gap-8 mt-15 max-w-[1800px] w-full mx-auto'>
+        <div className='grid grid-cols-1 md:grid-cols-[1fr_430px] gap-10 mt-15 max-w-[1800px] w-full mx-auto'>
 
             {/* Sales Graph */}
-            <div className='bg-white shadow-2xl p-1 md:p-4 max-w-[800px] w-full mx-auto '> 
+            <div className='bg-white shadow-2xl p-1 md:p-4 max-w-[900px] w-full mx-auto '> 
                 <h2 className='flex justify-center mb-3'>Sales Trend (Last 7 days)</h2>
                 <Line  data={salesData}/>
             </div>
 
 
             {/* Order Order Status */}
-            <div className='bg-white shadow-2xl md:max-w-[350px] w-full mx-auto px-2 '>
+            <div className='bg-white shadow-2xl md:max-w-[450px] max-w-[400px] w-full mx-auto p-2 '>
                 <h2 className='flex justify-center mb-3 md:mb-20 pt-6'>Order Status</h2>
-                <Line className='' data={ordersData}/>
+                <Pie className='' data={ordersData}/>
             </div>
 
             {/*Top Product  */}
-            <div className='bg-white shadow-2xl max-w-[800px] w-full mx-auto px-4'>
+            <div className='bg-white shadow-2xl max-w-[900px] w-full mx-auto p-4'>
                 <h2 className='flex justify-center mb-3 md:mb-10 pt-6'>Top Selling Product</h2>
                 <Bar data={productsData}/>
             </div>
 
             {/* User Growrth */}
-            <div className='bg-white shadow-2xl max-w-[350px] w-full mx-auto px-2'>
+            <div className='bg-white shadow-2xl max-w-[450px] w-full mx-auto p-2'>
                 <h2 className='flex justify-center mb-3 md:mb-20 pt-6'>User Growth</h2>
                 <Line data={usersData}/>
             </div>

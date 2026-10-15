@@ -14,3 +14,15 @@
   font-weight: 800;
   font-style: normal;
 }
+
+
+
+
+/* Ensure the internal components respect the 100% width */
+.react-tel-input .form-control {
+    width: 100% !important;
+}
+/* This class might be used by the library wrapper */
+.react-tel-input {
+    width: 100% !important;
+}

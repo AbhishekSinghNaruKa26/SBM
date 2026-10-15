@@ -49,11 +49,14 @@ const Header = ({ selected, setSelected }) => {
                 <img className="max-w-[70px]" src="SMB-LOGO.png" alt="" />
               </div>
 
+
               {/* Cross */}
               <div onClick={() => setOpen(!open)} className="text-2xl">
                 <IoCloseSharp />
               </div>
             </div>
+
+     
 
             {/* Profile Details */}
             <div className="mt-8 flex rounded-2xl items-center gap-4 shadow-2xl py-3">
@@ -77,7 +80,7 @@ const Header = ({ selected, setSelected }) => {
             <div className="p-2 mt-10 space-y-7 font-semibold">
               {allButtons.map((item, index) => (
                 <div
-                  onClick={() => setSelected(item.name)}
+                  onClick={() => {setSelected(item.name); setOpen(!open)}}
                   key={index}
                   className={`flex items-center gap-2 rounded p-2 text-xl ${
                     selected === item.name ? "bg-gray-200 text-red-600" : ""

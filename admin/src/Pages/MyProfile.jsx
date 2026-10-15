@@ -32,15 +32,16 @@ const MyProfile = () => {
         <div className='whitespace-nowrap hidden sm:block'>Thurday, 02 October</div>
 
         {/* Notification  icons */}
-        <div className='relative flex gap-2 items-center md:gap-6 text-2xl'>
+        <div className=' flex gap-2 items-center md:gap-6 text-2xl'>
           <div className='relative bg-gray-200 p-2 rounded text-black '>
             <span className='absolute -top-2 -right-2  text-sm rounded-2xl px-1 bg-black text-white'>0</span>
             <LuMessageSquareText />
             </div>
 
           <div className='relative bg-gray-200 p-2 rounded text-black '>
-            <IoMdNotificationsOutline />
-              <span className='absolute -top-2 -right-2  text-sm rounded-2xl px-1 bg-black text-white'>0</span>
+            <div><IoMdNotificationsOutline /></div>
+            <div className=''><span className='absolute -top-2 -right-2   text-sm rounded-2xl px-1 bg-black text-white'>0</span></div>
+              
             </div>
         </div>
         
@@ -56,9 +57,11 @@ const MyProfile = () => {
       {/* 3. Admin Info*/}
       <div className='mt-4 flex items-center gap-5  shadow-2xl p-4'>
 
-        <div className='relative'>
-          <img src="self.jpeg" alt="" className='w-32 rounded-full' />
-          <span className='absolute bottom-1 right-1 rounded-full border bg-white p-1'><MdOutlineCameraAlt /></span>
+        <div className=''>
+          <div className=''><img src="self.jpeg" alt="" className='w-32 rounded-full' /></div>
+          
+          <div className='relative '><span className='absolute bottom-0  -z-10 -right-1 rounded-full border bg-white p-1'><MdOutlineCameraAlt /></span></div>
+          
         </div>
 
         <div className='space-y-1'>
